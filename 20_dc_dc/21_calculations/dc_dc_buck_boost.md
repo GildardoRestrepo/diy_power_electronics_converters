@@ -153,4 +153,8 @@ The switch is high-side (between $V_S$ and the inductor), so its source is not a
 ## Links
 - [Buck converter design](dc_dc_buck.md)
 - [Boost converter design](dc_dc_boost.md)
-- [Project README](../../README.md)
+- Project README
+
+---
+## Enlaces
+[[power_electronics|Power Electronics]]

@@ -147,4 +147,8 @@ The switch is low-side (source at ground), so its gate driver needs no floating 
 ## Links
 - [Buck converter design](dc_dc_buck.md)
 - [Buck-Boost converter design](dc_dc_buck_boost.md)
-- [Project README](../../README.md)
+- Project README
+
+---
+## Enlaces
+[[power_electronics|Power Electronics]]

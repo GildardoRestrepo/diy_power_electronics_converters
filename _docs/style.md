@@ -165,4 +165,8 @@ what was chosen. Use `type: adr`. `status` reflects the decision state (`accepte
 
 ---
 ## Links
-- [Project README](../README.md)
+- Project README
+
+---
+## Enlaces
+[[power_electronics|Power Electronics]]

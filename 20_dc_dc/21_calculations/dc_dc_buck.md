@@ -141,4 +141,8 @@ The voltage rating covers the start-up overshoot described in section 6.
 ## Links
 - [Boost converter design](dc_dc_boost.md)
 - [Buck-Boost converter design](dc_dc_buck_boost.md)
-- [Project README](../../README.md)
+- Project README
+
+---
+## Enlaces
+[[power_electronics|Power Electronics]]
