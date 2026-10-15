@@ -1,18 +1,6 @@
 ---
-title: Buck Converter Design
+type: calculo
 created: 2026-08-22
-time: 20:27
-creator: Gilbert
-last update: 2026-10-10
-update by: Gilbert
-type: calculation
-status: draft
-stage: 1
-area: Power Electronics
-editor: Gilbert
-order: 0
-tags:
-  - type/calculation
 ---
 # Buck Converter Design
 

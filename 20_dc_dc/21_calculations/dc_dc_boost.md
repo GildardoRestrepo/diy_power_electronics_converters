@@ -1,18 +1,6 @@
 ---
-title: "Boost Converter Design"
+type: calculo
 created: 2026-10-10
-time: ""
-creator: "Gilbert"
-last update: 2026-10-10
-update by: "Gilbert"
-type: calculation
-status: draft
-stage: 1
-area: power
-editor: "Gilbert"
-order: 0
-tags:
-  - type/calculation
 ---
 # Boost Converter Design
 

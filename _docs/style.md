@@ -1,18 +1,6 @@
 ---
-title: "Documentation Style Guide"
+type: referencia
 created: 2026-08-22
-time: ""
-creator: "Gilbert"
-last update: 2026-10-10
-update by: "Gilbert"
-type: reference
-status: active
-stage: ""
-area: management
-editor: "Gilbert"
-order: 0
-tags:
-  - type/reference
 ---
 # Documentation Style Guide
 
