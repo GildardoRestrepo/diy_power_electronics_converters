@@ -6,20 +6,22 @@ Portable, enclosed power converters for teaching, sized to the supplies and load
 > These converters operate at up to 300 V DC and at mains-level AC. Build and test them only under lab supervision, with proper isolation and protection.
 
 ---
+
 ## Converters
 
-| Family | Converter                        | Specification                                          | Status        |
-| ------ | -------------------------------- | ------------------------------------------------------ | ------------- |
-| AC/DC  | Three-phase full-wave rectifier  | 6-pulse                                                | Planned       |
-| AC/DC  | Three-phase full-wave rectifier  | 12-pulse                                               | Planned       |
-| AC/DC  | Three-phase full-wave rectifier  | 24-pulse (requires the lab's zigzag transformer)       | Planned       |
-| DC/DC  | Buck                             | 300 V → 110 V                                          | Ideal PSIM model |
-| DC/DC  | Boost                            | 110 V → 300 V                                          | Ideal PSIM model |
-| DC/DC  | Buck-Boost (inverting)           | 5 V → −12 V                                            | Ideal PSIM model |
-| DC/AC  | Three-phase full-wave inverter   | 110 or 220 V<sub>rms</sub> L-L (TBD)                   | Planned       |
-| Control | External gating unit            | ESP32-based PWM / square-wave generator, optically isolated | Concept  |
+| Family  | Converter                       | Specification                                               | Status           |
+| ------- | ------------------------------- | ----------------------------------------------------------- | ---------------- |
+| AC/DC   | Three-phase full-wave rectifier | 6-pulse                                                     | Planned          |
+| AC/DC   | Three-phase full-wave rectifier | 12-pulse                                                    | Planned          |
+| AC/DC   | Three-phase full-wave rectifier | 24-pulse (requires the lab's zigzag transformer)            | Planned          |
+| DC/DC   | Buck                            | 300 V → 110 V                                               | Ideal PSIM model |
+| DC/DC   | Boost                           | 110 V → 300 V                                               | Ideal PSIM model |
+| DC/DC   | Buck-Boost (inverting)          | 5 V → −12 V                                                 | Ideal PSIM model |
+| DC/AC   | Three-phase full-wave inverter  | 110 or 220 V<sub>rms</sub> L-L (TBD)                        | Planned          |
+| Control | External gating unit            | ESP32-based PWM / square-wave generator, optically isolated | Concept          |
 
 ---
+
 ## Repository structure
 
 The repository is organized by converter family. Every family uses the same five stages, and each stage is numbered after its family (e.g. `2x` for DC/DC).
@@ -41,6 +43,7 @@ The repository is organized by converter family. Every family uses the same five
 ```
 
 ---
+
 ## Workflow
 
 1. **Calculations**: requirements, operating point and component sizing.
@@ -50,25 +53,24 @@ The repository is organized by converter family. Every family uses the same five
 5. **Lab test**: staged power-up and comparison against simulation.
 
 ---
+
 ## Tools
 
-| Purpose            | Tool                  |
-| ------------------ | --------------------- |
-| Simulation         | PSIM                  |
-| Schematic and PCB  | KiCad                 |
-| Enclosure design   | Fusion 360            |
-| Switching control  | ESP32 + Arduino IDE   |
+| Purpose           | Tool                |
+| ----------------- | ------------------- |
+| Simulation        | PSIM                |
+| Schematic and PCB | KiCad               |
+| Enclosure design  | Fusion 360          |
+| Switching control | ESP32 + Arduino IDE |
 
 ---
-## Documentation
 
-All Markdown documents follow the style guide.
-
----
 ## License
 
 Released under the [MIT License](LICENSE).
 
 ---
+
 ## Enlaces
+
 [[power_electronics|Power Electronics]]

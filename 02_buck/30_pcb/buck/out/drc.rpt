@@ -1,0 +1,626 @@
+** Drc report for buck.kicad_pcb **
+** Created on 2026-11-13T21:22:54 **
+** Report includes: Errors, Warnings **
+
+** Found 122 DRC violations **
+[shorting_items]: Elementos conectando dos redes (redes /VCC1 y /SW)
+    Local override; error
+    @(132.0000 mm, 134.0000 mm): PTH pad 1 [/VCC1] of C12
+    @(131.0000 mm, 134.0000 mm): PTH pad 2 [/SW] of C11
+[shorting_items]: Elementos conectando dos redes (redes /VCC1 y /SW)
+    Local override; error
+    @(132.0000 mm, 134.0000 mm): PTH pad 1 [/VCC1] of C12
+    @(131.0000 mm, 134.0000 mm): PTH pad 2 [/SW] of C11
+[shorting_items]: Elementos conectando dos redes (redes /GND_P y /IREF_TOP)
+    Local override; error
+    @(149.0000 mm, 152.0000 mm): PTH pad 2 [/GND_P] of C92
+    @(150.0000 mm, 152.0000 mm): PTH pad 1 [/IREF_TOP] of RV9
+[shorting_items]: Elementos conectando dos redes (redes /GND_P y /VCC9)
+    Local override; error
+    @(144.9200 mm, 152.0000 mm): PTH pad 3 [/GND_P] of RV9
+    @(144.0000 mm, 152.0000 mm): PTH pad 1 [/VCC9] of C92
+[shorting_items]: Elementos conectando dos redes (redes /GND_P y /VCC9)
+    Local override; error
+    @(144.9200 mm, 152.0000 mm): PTH pad 3 [/GND_P] of RV9
+    @(144.0000 mm, 152.0000 mm): PTH pad 1 [/VCC9] of C92
+[hole_clearance]: Infracción de margen de agujero (restricciones de configuración de placa para agujeros margen 0.2500 mm; real 0.0000 mm)
+    Rule: restricciones de configuración de placa para agujeros; error
+    @(194.0000 mm, 195.0800 mm): PTH pad 2 [/GND_P] of J2
+    @(196.0000 mm, 196.0000 mm): NPTH pad of H4
+[hole_clearance]: Infracción de margen de agujero (restricciones de configuración de placa para agujeros margen 0.2500 mm; real 0.0000 mm)
+    Rule: restricciones de configuración de placa para agujeros; error
+    @(194.0000 mm, 195.0800 mm): PTH pad 2 [/GND_P] of J2
+    @(196.0000 mm, 196.0000 mm): NPTH pad of H4
+[clearance]: Infracción de margen ( margen 0.2000 mm; real 0.0200 mm)
+    Local override; error
+    @(149.0000 mm, 152.0000 mm): PTH pad 2 [/GND_P] of C92
+    @(147.4600 mm, 152.0000 mm): PTH pad 2 [/IREF] of RV9
+[shorting_items]: Elementos conectando dos redes (redes /GND_P y /IREF_TOP)
+    Local override; error
+    @(149.0000 mm, 152.0000 mm): PTH pad 2 [/GND_P] of C92
+    @(150.0000 mm, 152.0000 mm): PTH pad 1 [/IREF_TOP] of RV9
+[clearance]: Infracción de margen ( margen 0.2000 mm; real 0.0000 mm)
+    Local override; error
+    @(104.0000 mm, 164.0000 mm): PTH pad 1 [/PWM1] of R11
+    @(105.0200 mm, 160.7200 mm): PTH pad MP [<no net>] of J1
+[clearance]: Infracción de margen ( margen 0.2000 mm; real 0.0200 mm)
+    Local override; error
+    @(149.0000 mm, 152.0000 mm): PTH pad 2 [/GND_P] of C92
+    @(147.4600 mm, 152.0000 mm): PTH pad 2 [/IREF] of RV9
+[clearance]: Infracción de margen ( margen 0.2000 mm; real 0.0000 mm)
+    Local override; error
+    @(104.0000 mm, 164.0000 mm): PTH pad 1 [/PWM1] of R11
+    @(105.0200 mm, 160.7200 mm): PTH pad MP [<no net>] of J1
+[courtyards_overlap]: Courtyards overlap
+    Rule: restricciones de configuración de placa para patios; error
+    @(128.0000 mm, 128.0000 mm): Footprint R13
+    @(112.0000 mm, 126.0000 mm): Footprint PS9
+[pth_inside_courtyard]: PTH inside courtyard
+    Local override; error
+    @(128.0000 mm, 128.0000 mm): PTH pad 1 [/G1] of R13
+    @(112.0000 mm, 126.0000 mm): Footprint PS9
+[courtyards_overlap]: Courtyards overlap
+    Rule: restricciones de configuración de placa para patios; error
+    @(128.0000 mm, 144.0000 mm): Footprint R94
+    @(142.0000 mm, 138.0000 mm): Footprint C1
+[pth_inside_courtyard]: PTH inside courtyard
+    Local override; error
+    @(143.2400 mm, 144.0000 mm): PTH pad 2 [/OVMID] of R94
+    @(142.0000 mm, 138.0000 mm): Footprint C1
+[courtyards_overlap]: Courtyards overlap
+    Rule: restricciones de configuración de placa para patios; error
+    @(128.0000 mm, 144.0000 mm): Footprint R94
+    @(128.0000 mm, 148.0000 mm): Footprint R95
+[courtyards_overlap]: Courtyards overlap
+    Rule: restricciones de configuración de placa para patios; error
+    @(112.0000 mm, 126.0000 mm): Footprint PS9
+    @(104.0000 mm, 134.0000 mm): Footprint J1
+[courtyards_overlap]: Courtyards overlap
+    Rule: restricciones de configuración de placa para patios; error
+    @(194.0000 mm, 190.0000 mm): Footprint J2
+    @(196.0000 mm, 196.0000 mm): Footprint H4
+[npth_inside_courtyard]: NPTH inside courtyard
+    Local override; error
+    @(196.0000 mm, 196.0000 mm): NPTH pad of H4
+    @(194.0000 mm, 190.0000 mm): Footprint J2
+[pth_inside_courtyard]: PTH inside courtyard
+    Local override; error
+    @(194.0000 mm, 195.0800 mm): PTH pad 2 [/GND_P] of J2
+    @(196.0000 mm, 196.0000 mm): Footprint H4
+[courtyards_overlap]: Courtyards overlap
+    Rule: restricciones de configuración de placa para patios; error
+    @(162.0000 mm, 186.0000 mm): Footprint R90
+    @(160.0000 mm, 194.0000 mm): Footprint F1
+[courtyards_overlap]: Courtyards overlap
+    Rule: restricciones de configuración de placa para patios; error
+    @(136.0000 mm, 162.0000 mm): Footprint R92
+    @(128.0000 mm, 180.0000 mm): Footprint C3
+[pth_inside_courtyard]: PTH inside courtyard
+    Local override; error
+    @(136.0000 mm, 172.1600 mm): PTH pad 2 [/IREF_TOP] of R92
+    @(128.0000 mm, 180.0000 mm): Footprint C3
+[courtyards_overlap]: Courtyards overlap
+    Rule: restricciones de configuración de placa para patios; error
+    @(112.0000 mm, 108.0000 mm): Footprint PS1
+    @(104.0000 mm, 134.0000 mm): Footprint J1
+[courtyards_overlap]: Courtyards overlap
+    Rule: restricciones de configuración de placa para patios; error
+    @(140.0000 mm, 120.0000 mm): Footprint Q1
+    @(128.0000 mm, 122.0000 mm): Footprint R12
+[pth_inside_courtyard]: PTH inside courtyard
+    Local override; error
+    @(138.1600 mm, 122.0000 mm): PTH pad 2 [/G1] of R12
+    @(140.0000 mm, 120.0000 mm): Footprint Q1
+[courtyards_overlap]: Courtyards overlap
+    Rule: restricciones de configuración de placa para patios; error
+    @(166.0000 mm, 160.0000 mm): Footprint R2
+    @(162.0000 mm, 170.0000 mm): Footprint C5
+[courtyards_overlap]: Courtyards overlap
+    Rule: restricciones de configuración de placa para patios; error
+    @(104.0000 mm, 164.0000 mm): Footprint R11
+    @(104.0000 mm, 134.0000 mm): Footprint J1
+[pth_inside_courtyard]: PTH inside courtyard
+    Local override; error
+    @(104.0000 mm, 164.0000 mm): PTH pad 1 [/PWM1] of R11
+    @(104.0000 mm, 134.0000 mm): Footprint J1
+[courtyards_overlap]: Courtyards overlap
+    Rule: restricciones de configuración de placa para patios; error
+    @(128.0000 mm, 180.0000 mm): Footprint C3
+    @(152.0000 mm, 162.0000 mm): Footprint R98
+[pth_inside_courtyard]: PTH inside courtyard
+    Local override; error
+    @(152.0000 mm, 172.1600 mm): PTH pad 2 [/GND_P] of R98
+    @(128.0000 mm, 180.0000 mm): Footprint C3
+[courtyards_overlap]: Courtyards overlap
+    Rule: restricciones de configuración de placa para patios; error
+    @(128.0000 mm, 180.0000 mm): Footprint C3
+    @(128.0000 mm, 162.0000 mm): Footprint R91
+[pth_inside_courtyard]: PTH inside courtyard
+    Local override; error
+    @(128.0000 mm, 172.1600 mm): PTH pad 2 [/ISENSE] of R91
+    @(128.0000 mm, 180.0000 mm): Footprint C3
+[courtyards_overlap]: Courtyards overlap
+    Rule: restricciones de configuración de placa para patios; error
+    @(128.0000 mm, 180.0000 mm): Footprint C3
+    @(156.0000 mm, 162.0000 mm): Footprint R99
+[pth_inside_courtyard]: PTH inside courtyard
+    Local override; error
+    @(156.0000 mm, 172.1600 mm): PTH pad 2 [/VREF] of R99
+    @(128.0000 mm, 180.0000 mm): Footprint C3
+[courtyards_overlap]: Courtyards overlap
+    Rule: restricciones de configuración de placa para patios; error
+    @(128.0000 mm, 180.0000 mm): Footprint C3
+    @(148.0000 mm, 162.0000 mm): Footprint R97
+[pth_inside_courtyard]: PTH inside courtyard
+    Local override; error
+    @(148.0000 mm, 172.1600 mm): PTH pad 2 [/VREF] of R97
+    @(128.0000 mm, 180.0000 mm): Footprint C3
+[courtyards_overlap]: Courtyards overlap
+    Rule: restricciones de configuración de placa para patios; error
+    @(128.0000 mm, 180.0000 mm): Footprint C3
+    @(144.0000 mm, 162.0000 mm): Footprint R96
+[pth_inside_courtyard]: PTH inside courtyard
+    Local override; error
+    @(144.0000 mm, 172.1600 mm): PTH pad 2 [/GND_P] of R96
+    @(128.0000 mm, 180.0000 mm): Footprint C3
+[courtyards_overlap]: Courtyards overlap
+    Rule: restricciones de configuración de placa para patios; error
+    @(128.0000 mm, 180.0000 mm): Footprint C3
+    @(140.0000 mm, 162.0000 mm): Footprint R93
+[pth_inside_courtyard]: PTH inside courtyard
+    Local override; error
+    @(140.0000 mm, 172.1600 mm): PTH pad 2 [/IREF] of R93
+    @(128.0000 mm, 180.0000 mm): Footprint C3
+[courtyards_overlap]: Courtyards overlap
+    Rule: restricciones de configuración de placa para patios; error
+    @(142.0000 mm, 138.0000 mm): Footprint C1
+    @(128.0000 mm, 148.0000 mm): Footprint R95
+[courtyards_overlap]: Courtyards overlap
+    Rule: restricciones de configuración de placa para patios; error
+    @(160.0000 mm, 194.0000 mm): Footprint F1
+    @(148.0000 mm, 194.0000 mm): Footprint TH1
+[pth_inside_courtyard]: PTH inside courtyard
+    Local override; error
+    @(160.0000 mm, 194.0000 mm): PTH pad 1 [/VIN+] of F1
+    @(148.0000 mm, 194.0000 mm): Footprint TH1
+[courtyards_overlap]: Courtyards overlap
+    Rule: restricciones de configuración de placa para patios; error
+    @(178.0000 mm, 138.0000 mm): Footprint C4
+    @(166.0000 mm, 148.0000 mm): Footprint R1
+[courtyards_overlap]: Courtyards overlap
+    Rule: restricciones de configuración de placa para patios; error
+    @(178.0000 mm, 138.0000 mm): Footprint C4
+    @(194.0000 mm, 140.0000 mm): Footprint J3
+[courtyards_overlap]: Courtyards overlap
+    Rule: restricciones de configuración de placa para patios; error
+    @(150.0000 mm, 152.0000 mm): Footprint RV9
+    @(144.0000 mm, 152.0000 mm): Footprint C92
+[pth_inside_courtyard]: PTH inside courtyard
+    Local override; error
+    @(144.0000 mm, 152.0000 mm): PTH pad 1 [/VCC9] of C92
+    @(150.0000 mm, 152.0000 mm): Footprint RV9
+[pth_inside_courtyard]: PTH inside courtyard
+    Local override; error
+    @(149.0000 mm, 152.0000 mm): PTH pad 2 [/GND_P] of C92
+    @(150.0000 mm, 152.0000 mm): Footprint RV9
+[pth_inside_courtyard]: PTH inside courtyard
+    Local override; error
+    @(150.0000 mm, 152.0000 mm): PTH pad 1 [/IREF_TOP] of RV9
+    @(144.0000 mm, 152.0000 mm): Footprint C92
+[pth_inside_courtyard]: PTH inside courtyard
+    Local override; error
+    @(147.4600 mm, 152.0000 mm): PTH pad 2 [/IREF] of RV9
+    @(144.0000 mm, 152.0000 mm): Footprint C92
+[pth_inside_courtyard]: PTH inside courtyard
+    Local override; error
+    @(144.9200 mm, 152.0000 mm): PTH pad 3 [/GND_P] of RV9
+    @(144.0000 mm, 152.0000 mm): Footprint C92
+[courtyards_overlap]: Courtyards overlap
+    Rule: restricciones de configuración de placa para patios; error
+    @(150.0000 mm, 152.0000 mm): Footprint RV9
+    @(128.0000 mm, 148.0000 mm): Footprint R95
+[courtyards_overlap]: Courtyards overlap
+    Rule: restricciones de configuración de placa para patios; error
+    @(132.0000 mm, 134.0000 mm): Footprint C12
+    @(126.0000 mm, 134.0000 mm): Footprint C11
+[pth_inside_courtyard]: PTH inside courtyard
+    Local override; error
+    @(131.0000 mm, 134.0000 mm): PTH pad 2 [/SW] of C11
+    @(132.0000 mm, 134.0000 mm): Footprint C12
+[pth_inside_courtyard]: PTH inside courtyard
+    Local override; error
+    @(132.0000 mm, 134.0000 mm): PTH pad 1 [/VCC1] of C12
+    @(126.0000 mm, 134.0000 mm): Footprint C11
+[courtyards_overlap]: Courtyards overlap
+    Rule: restricciones de configuración de placa para patios; error
+    @(162.0000 mm, 170.0000 mm): Footprint C5
+    @(194.0000 mm, 160.0000 mm): Footprint J4
+[courtyards_overlap]: Courtyards overlap
+    Rule: restricciones de configuración de placa para patios; error
+    @(132.0000 mm, 150.0000 mm): Footprint U9
+    @(128.0000 mm, 148.0000 mm): Footprint R95
+[pth_inside_courtyard]: PTH inside courtyard
+    Local override; error
+    @(132.0000 mm, 150.0000 mm): PTH pad 1 [/FLT] of U9
+    @(128.0000 mm, 148.0000 mm): Footprint R95
+[pth_inside_courtyard]: PTH inside courtyard
+    Local override; error
+    @(139.6200 mm, 150.0000 mm): PTH pad 8 [/VCC9] of U9
+    @(128.0000 mm, 148.0000 mm): Footprint R95
+[courtyards_overlap]: Courtyards overlap
+    Rule: restricciones de configuración de placa para patios; error
+    @(104.0000 mm, 134.0000 mm): Footprint J1
+    @(104.0000 mm, 120.0000 mm): Footprint C02
+[pth_inside_courtyard]: PTH inside courtyard
+    Local override; error
+    @(104.0000 mm, 120.0000 mm): PTH pad 1 [+12V] of C02
+    @(104.0000 mm, 134.0000 mm): Footprint J1
+[pth_inside_courtyard]: PTH inside courtyard
+    Local override; error
+    @(109.0000 mm, 120.0000 mm): PTH pad 2 [GND] of C02
+    @(104.0000 mm, 134.0000 mm): Footprint J1
+[solder_mask_bridge]: La apertura de la máscara de soldadura frontal une elementos con diferentes redes
+    Rule: configuración de la placa anchura mínima de la máscara de soldadura; error
+    @(132.0000 mm, 134.0000 mm): PTH pad 1 [/VCC1] of C12
+    @(131.0000 mm, 134.0000 mm): PTH pad 2 [/SW] of C11
+[solder_mask_bridge]: La apertura de la máscara de soldadura frontal une elementos con diferentes redes
+    Rule: configuración de la placa anchura mínima de la máscara de soldadura; error
+    @(105.0200 mm, 160.7200 mm): PTH pad MP [<no net>] of J1
+    @(104.0000 mm, 164.0000 mm): PTH pad 1 [/PWM1] of R11
+[solder_mask_bridge]: La apertura de la máscara de soldadura trasera une elementos con diferentes redes
+    Rule: configuración de la placa anchura mínima de la máscara de soldadura; error
+    @(105.0200 mm, 160.7200 mm): PTH pad MP [<no net>] of J1
+    @(104.0000 mm, 164.0000 mm): PTH pad 1 [/PWM1] of R11
+[solder_mask_bridge]: La apertura de la máscara de soldadura trasera une elementos con diferentes redes
+    Rule: configuración de la placa anchura mínima de la máscara de soldadura; error
+    @(132.0000 mm, 134.0000 mm): PTH pad 1 [/VCC1] of C12
+    @(131.0000 mm, 134.0000 mm): PTH pad 2 [/SW] of C11
+[solder_mask_bridge]: La apertura de la máscara de soldadura frontal une elementos con diferentes redes
+    Rule: configuración de la placa anchura mínima de la máscara de soldadura; error
+    @(196.0000 mm, 196.0000 mm): NPTH pad of H4
+    @(194.0000 mm, 195.0800 mm): PTH pad 2 [/GND_P] of J2
+[solder_mask_bridge]: La apertura de la máscara de soldadura frontal une elementos con diferentes redes
+    Rule: configuración de la placa anchura mínima de la máscara de soldadura; error
+    @(150.0000 mm, 152.0000 mm): PTH pad 1 [/IREF_TOP] of RV9
+    @(149.0000 mm, 152.0000 mm): PTH pad 2 [/GND_P] of C92
+[solder_mask_bridge]: La apertura de la máscara de soldadura trasera une elementos con diferentes redes
+    Rule: configuración de la placa anchura mínima de la máscara de soldadura; error
+    @(150.0000 mm, 152.0000 mm): PTH pad 1 [/IREF_TOP] of RV9
+    @(149.0000 mm, 152.0000 mm): PTH pad 2 [/GND_P] of C92
+[solder_mask_bridge]: La apertura de la máscara de soldadura frontal une elementos con diferentes redes
+    Rule: configuración de la placa anchura mínima de la máscara de soldadura; error
+    @(144.9200 mm, 152.0000 mm): PTH pad 3 [/GND_P] of RV9
+    @(144.0000 mm, 152.0000 mm): PTH pad 1 [/VCC9] of C92
+[solder_mask_bridge]: La apertura de la máscara de soldadura trasera une elementos con diferentes redes
+    Rule: configuración de la placa anchura mínima de la máscara de soldadura; error
+    @(196.0000 mm, 196.0000 mm): NPTH pad of H4
+    @(194.0000 mm, 195.0800 mm): PTH pad 2 [/GND_P] of J2
+[solder_mask_bridge]: La apertura de la máscara de soldadura trasera une elementos con diferentes redes
+    Rule: configuración de la placa anchura mínima de la máscara de soldadura; error
+    @(144.9200 mm, 152.0000 mm): PTH pad 3 [/GND_P] of RV9
+    @(144.0000 mm, 152.0000 mm): PTH pad 1 [/VCC9] of C92
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: restricciones de configuración de placa para serigrafía; warning
+    @(100.0000 mm, 100.0000 mm): Rectangle on Edge.Cuts
+    @(99.3700 mm, 134.5000 mm): Segment of J1 on F.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: restricciones de configuración de placa para serigrafía; warning
+    @(100.0000 mm, 100.0000 mm): Rectangle on Edge.Cuts
+    @(100.3700 mm, 134.0000 mm): Segment of J1 on F.Silkscreen
+[hole_to_hole]: El agujero perforado está demasiado cerca de otro agujero (restricciones de configuración de placa mínimo 0.2495 mm; real 0.0000 mm)
+    Rule: restricciones de configuración de placa; warning
+    @(194.0000 mm, 195.0800 mm): PTH pad 2 [/GND_P] of J2
+    @(196.0000 mm, 196.0000 mm): NPTH pad of H4
+[hole_to_hole]: El agujero perforado está demasiado cerca de otro agujero (restricciones de configuración de placa mínimo 0.2495 mm; real 0.2000 mm)
+    Rule: restricciones de configuración de placa; warning
+    @(150.0000 mm, 152.0000 mm): PTH pad 1 [/IREF_TOP] of RV9
+    @(149.0000 mm, 152.0000 mm): PTH pad 2 [/GND_P] of C92
+[hole_to_hole]: El agujero perforado está demasiado cerca de otro agujero (restricciones de configuración de placa mínimo 0.2495 mm; real 0.1200 mm)
+    Rule: restricciones de configuración de placa; warning
+    @(144.0000 mm, 152.0000 mm): PTH pad 1 [/VCC9] of C92
+    @(144.9200 mm, 152.0000 mm): PTH pad 3 [/GND_P] of RV9
+[hole_to_hole]: El agujero perforado está demasiado cerca de otro agujero (restricciones de configuración de placa mínimo 0.2495 mm; real 0.2000 mm)
+    Rule: restricciones de configuración de placa; warning
+    @(131.0000 mm, 134.0000 mm): PTH pad 2 [/SW] of C11
+    @(132.0000 mm, 134.0000 mm): PTH pad 1 [/VCC1] of C12
+[silk_overlap]: Silkscreen clearance
+    Rule: restricciones de configuración de placa para serigrafía; warning
+    @(133.1600 mm, 148.6700 mm): Segment of U9 on F.Silkscreen
+    @(129.5500 mm, 145.6300 mm): Rectangle of R95 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: restricciones de configuración de placa para serigrafía; warning
+    @(138.4600 mm, 158.9500 mm): Segment of U9 on F.Silkscreen
+    @(129.5500 mm, 145.6300 mm): Rectangle of R95 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: restricciones de configuración de placa para serigrafía; warning
+    @(159.8900 mm, 189.0900 mm): Segment of F1 on F.Silkscreen
+    @(164.5800 mm, 182.6800 mm): Rectangle of R90 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: restricciones de configuración de placa para serigrafía; warning
+    @(182.6100 mm, 192.2500 mm): Segment of F1 on F.Silkscreen
+    @(164.5800 mm, 182.6800 mm): Rectangle of R90 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: restricciones de configuración de placa para serigrafía; warning
+    @(167.5500 mm, 157.6300 mm): Rectangle of R2 on F.Silkscreen
+    @(159.8800 mm, 162.3800 mm): Segment of C5 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: restricciones de configuración de placa para serigrafía; warning
+    @(159.8800 mm, 162.3800 mm): Segment of C5 on F.Silkscreen
+    @(189.2800 mm, 167.7400 mm): Segment of J4 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: restricciones de configuración de placa para serigrafía; warning
+    @(159.8800 mm, 162.3800 mm): Segment of C5 on F.Silkscreen
+    @(189.9000 mm, 157.3400 mm): Segment of J4 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: restricciones de configuración de placa para serigrafía; warning
+    @(159.8800 mm, 162.3800 mm): Segment of C5 on F.Silkscreen
+    @(191.4000 mm, 157.3400 mm): Segment of J4 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: restricciones de configuración de placa para serigrafía; warning
+    @(199.3200 mm, 167.7400 mm): Segment of J4 on F.Silkscreen
+    @(191.6200 mm, 162.3800 mm): Segment of C5 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: restricciones de configuración de placa para serigrafía; warning
+    @(181.7500 mm, 138.0000 mm): Circle of C4 on F.Silkscreen
+    @(189.2800 mm, 137.3400 mm): Segment of J3 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: restricciones de configuración de placa para serigrafía; warning
+    @(181.7500 mm, 138.0000 mm): Circle of C4 on F.Silkscreen
+    @(189.2800 mm, 147.7400 mm): Segment of J3 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: restricciones de configuración de placa para serigrafía; warning
+    @(181.7500 mm, 138.0000 mm): Circle of C4 on F.Silkscreen
+    @(189.9000 mm, 137.3400 mm): Segment of J3 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: restricciones de configuración de placa para serigrafía; warning
+    @(181.7500 mm, 138.0000 mm): Circle of C4 on F.Silkscreen
+    @(167.5500 mm, 145.6300 mm): Rectangle of R1 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: restricciones de configuración de placa para serigrafía; warning
+    @(109.7900 mm, 131.0350 mm): Segment of PS9 on F.Silkscreen
+    @(109.7800 mm, 122.9200 mm): Segment of J1 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: restricciones de configuración de placa para serigrafía; warning
+    @(111.7040 mm, 131.0350 mm): Segment of PS9 on F.Silkscreen
+    @(109.7800 mm, 122.9200 mm): Segment of J1 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: restricciones de configuración de placa para serigrafía; warning
+    @(109.7900 mm, 124.7150 mm): Segment of PS9 on F.Silkscreen
+    @(109.7800 mm, 122.9200 mm): Segment of J1 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: restricciones de configuración de placa para serigrafía; warning
+    @(129.5100 mm, 124.7150 mm): Segment of PS9 on F.Silkscreen
+    @(129.0400 mm, 128.0000 mm): Segment of R13 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: restricciones de configuración de placa para serigrafía; warning
+    @(103.8800 mm, 118.6300 mm): Segment of C02 on F.Silkscreen
+    @(107.5800 mm, 113.4200 mm): Segment of J1 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: restricciones de configuración de placa para serigrafía; warning
+    @(133.0000 mm, 134.0000 mm): Circle of C12 on F.Silkscreen
+    @(125.8800 mm, 132.6300 mm): Segment of C11 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: restricciones de configuración de placa para serigrafía; warning
+    @(133.0000 mm, 134.0000 mm): Circle of C12 on F.Silkscreen
+    @(131.1200 mm, 135.3700 mm): Segment of C11 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: restricciones de configuración de placa para serigrafía; warning
+    @(145.7500 mm, 138.0000 mm): Circle of C1 on F.Silkscreen
+    @(129.5500 mm, 141.6300 mm): Rectangle of R94 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: restricciones de configuración de placa para serigrafía; warning
+    @(104.0000 mm, 173.1200 mm): Segment of R11 on F.Silkscreen
+    @(102.9600 mm, 172.3600 mm): Segment of J1 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: restricciones de configuración de placa para serigrafía; warning
+    @(105.3700 mm, 165.8100 mm): Rectangle of R11 on F.Silkscreen
+    @(102.9600 mm, 164.6100 mm): Segment of J1 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: restricciones de configuración de placa para serigrafía; warning
+    @(105.3700 mm, 165.8100 mm): Rectangle of R11 on F.Silkscreen
+    @(102.9600 mm, 172.3600 mm): Segment of J1 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: restricciones de configuración de placa para serigrafía; warning
+    @(129.5500 mm, 141.6300 mm): Rectangle of R94 on F.Silkscreen
+    @(129.5500 mm, 145.6300 mm): Rectangle of R95 on F.Silkscreen
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(196.3000 mm, 187.3400 mm): Segment of J2 on F.Silkscreen
+    @(196.0000 mm, 196.0000 mm): NPTH pad of H4
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(125.8800 mm, 172.3800 mm): Segment of C3 on F.Silkscreen
+    @(136.0000 mm, 172.1600 mm): PTH pad 2 [/IREF_TOP] of R92
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(125.8800 mm, 172.3800 mm): Segment of C3 on F.Silkscreen
+    @(128.0000 mm, 172.1600 mm): PTH pad 2 [/ISENSE] of R91
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(125.8800 mm, 172.3800 mm): Segment of C3 on F.Silkscreen
+    @(152.0000 mm, 172.1600 mm): PTH pad 2 [/GND_P] of R98
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(125.8800 mm, 172.3800 mm): Segment of C3 on F.Silkscreen
+    @(144.0000 mm, 172.1600 mm): PTH pad 2 [/GND_P] of R96
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(125.8800 mm, 172.3800 mm): Segment of C3 on F.Silkscreen
+    @(140.0000 mm, 172.1600 mm): PTH pad 2 [/IREF] of R93
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(125.8800 mm, 172.3800 mm): Segment of C3 on F.Silkscreen
+    @(156.0000 mm, 172.1600 mm): PTH pad 2 [/VREF] of R99
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(125.8800 mm, 172.3800 mm): Segment of C3 on F.Silkscreen
+    @(148.0000 mm, 172.1600 mm): PTH pad 2 [/VREF] of R97
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(144.0000 mm, 192.7500 mm): Segment of TH1 on F.Silkscreen
+    @(160.0000 mm, 194.0000 mm): PTH pad 1 [/VIN+] of F1
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(159.5000 mm, 192.7500 mm): Segment of TH1 on F.Silkscreen
+    @(160.0000 mm, 194.0000 mm): PTH pad 1 [/VIN+] of F1
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(103.8800 mm, 121.3700 mm): Segment of C02 on F.Silkscreen
+    @(105.0200 mm, 125.0600 mm): PTH pad MP [<no net>] of J1
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(109.1200 mm, 121.3700 mm): Segment of C02 on F.Silkscreen
+    @(105.0200 mm, 125.0600 mm): PTH pad MP [<no net>] of J1
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(137.3900 mm, 122.8100 mm): Segment of Q1 on F.Silkscreen
+    @(138.1600 mm, 122.0000 mm): PTH pad 2 [/G1] of R12
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(153.5100 mm, 122.8100 mm): Segment of Q1 on F.Silkscreen
+    @(138.1600 mm, 122.0000 mm): PTH pad 2 [/G1] of R12
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(133.0000 mm, 134.0000 mm): Circle of C12 on F.Silkscreen
+    @(131.0000 mm, 134.0000 mm): PTH pad 2 [/SW] of C11
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(129.5500 mm, 145.6300 mm): Rectangle of R95 on F.Silkscreen
+    @(132.0000 mm, 150.0000 mm): PTH pad 1 [/FLT] of U9
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(129.5500 mm, 145.6300 mm): Rectangle of R95 on F.Silkscreen
+    @(139.6200 mm, 150.0000 mm): PTH pad 8 [/VCC9] of U9
+
+** Found 24 unconnected pads **
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(121.6200 mm, 163.6200 mm): PTH pad 5 [/SW] of U1
+    @(131.0000 mm, 134.0000 mm): PTH pad 2 [/SW] of C11
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(134.0000 mm, 134.0000 mm): PTH pad 2 [/SW] of C12
+    @(131.0000 mm, 134.0000 mm): PTH pad 2 [/SW] of C11
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(134.0000 mm, 134.0000 mm): PTH pad 2 [/SW] of C12
+    @(133.9500 mm, 124.4500 mm): Track [/SW] on F.Cu, length 4.2426 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(128.0000 mm, 144.0000 mm): PTH pad 1 [/VOUT] of R94
+    @(166.0000 mm, 148.0000 mm): PTH pad 1 [/VOUT] of R1
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(162.0000 mm, 170.0000 mm): PTH pad 1 [/VOUT] of C5
+    @(166.0000 mm, 148.0000 mm): PTH pad 1 [/VOUT] of R1
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(178.0000 mm, 138.0000 mm): PTH pad 1 [/VOUT] of C4
+    @(184.0000 mm, 126.0000 mm): PTH pad 1 [/VOUT] of TP3
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(178.0000 mm, 138.0000 mm): PTH pad 1 [/VOUT] of C4
+    @(166.0000 mm, 148.0000 mm): PTH pad 1 [/VOUT] of R1
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(194.0000 mm, 145.0800 mm): PTH pad 2 [/VOUT] of J3
+    @(178.0000 mm, 138.0000 mm): PTH pad 1 [/VOUT] of C4
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(194.0000 mm, 160.0000 mm): PTH pad 1 [/VOUT] of J4
+    @(194.0000 mm, 145.0800 mm): PTH pad 2 [/VOUT] of J3
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(132.0000 mm, 157.6200 mm): PTH pad 4 [/GND_P] of U9
+    @(144.9200 mm, 152.0000 mm): PTH pad 3 [/GND_P] of RV9
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(132.4500 mm, 166.4500 mm): Track [/GND_P] on B.Cu, length 25.5000 mm
+    @(132.0000 mm, 157.6200 mm): PTH pad 4 [/GND_P] of U9
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(149.0000 mm, 152.0000 mm): PTH pad 2 [/GND_P] of C92
+    @(144.9200 mm, 152.0000 mm): PTH pad 3 [/GND_P] of RV9
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(152.0000 mm, 172.1600 mm): PTH pad 2 [/GND_P] of R98
+    @(144.0000 mm, 172.1600 mm): PTH pad 2 [/GND_P] of R96
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(152.0000 mm, 172.1600 mm): PTH pad 2 [/GND_P] of R98
+    @(157.9500 mm, 166.4500 mm): Track [/GND_P] on B.Cu, length 3.5355 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(144.0000 mm, 152.0000 mm): PTH pad 1 [/VCC9] of C92
+    @(138.9500 mm, 150.4500 mm): Track [/VCC9] on F.Cu, length 0.5000 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(128.0000 mm, 162.0000 mm): PTH pad 1 [/COM] of R91
+    @(149.5000 mm, 138.0000 mm): PTH pad 2 [/COM] of C1
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(136.0000 mm, 172.1600 mm): PTH pad 2 [/IREF_TOP] of R92
+    @(150.0000 mm, 152.0000 mm): PTH pad 1 [/IREF_TOP] of RV9
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(126.0000 mm, 134.0000 mm): PTH pad 1 [/VCC1] of C11
+    @(132.0000 mm, 134.0000 mm): PTH pad 1 [/VCC1] of C12
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(128.0000 mm, 180.0000 mm): PTH pad 1 [/VIN] of C3
+    @(155.5000 mm, 195.7000 mm): PTH pad 2 [/VIN] of TH1
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(142.0000 mm, 138.0000 mm): PTH pad 1 [/VIN] of C1
+    @(128.0000 mm, 180.0000 mm): PTH pad 1 [/VIN] of C3
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(104.0000 mm, 139.0800 mm): PTH pad 5 [/PWM1] of J1
+    @(104.0000 mm, 164.0000 mm): PTH pad 1 [/PWM1] of R11
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(148.0000 mm, 194.0000 mm): PTH pad 1 [/VF] of TH1
+    @(182.5000 mm, 194.0000 mm): PTH pad 2 [/VF] of F1
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(132.0000 mm, 155.0800 mm): PTH pad 3 [/IREF] of U9
+    @(140.0000 mm, 172.1600 mm): PTH pad 2 [/IREF] of R93
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(147.4600 mm, 152.0000 mm): PTH pad 2 [/IREF] of RV9
+    @(132.0000 mm, 155.0800 mm): PTH pad 3 [/IREF] of U9
+
+** Found 8 Footprint errors **
+[net_conflict]: Al pad le falta la red indicada por el esquema (unconnected-(J1-Pin_6-Pad6))
+    Local override; warning
+    @(106.5400 mm, 139.0800 mm): PTH pad 6 [<no net>] of J1
+[net_conflict]: Al pad le falta la red indicada por el esquema (unconnected-(J1-Pin_7-Pad7))
+    Local override; warning
+    @(104.0000 mm, 141.6200 mm): PTH pad 7 [<no net>] of J1
+[net_conflict]: Al pad le falta la red indicada por el esquema (unconnected-(J1-Pin_8-Pad8))
+    Local override; warning
+    @(106.5400 mm, 141.6200 mm): PTH pad 8 [<no net>] of J1
+[net_conflict]: Al pad le falta la red indicada por el esquema (unconnected-(J1-Pin_9-Pad9))
+    Local override; warning
+    @(104.0000 mm, 144.1600 mm): PTH pad 9 [<no net>] of J1
+[net_conflict]: Al pad le falta la red indicada por el esquema (unconnected-(J1-Pin_10-Pad10))
+    Local override; warning
+    @(106.5400 mm, 144.1600 mm): PTH pad 10 [<no net>] of J1
+[net_conflict]: Al pad le falta la red indicada por el esquema (unconnected-(J1-Pin_13-Pad13))
+    Local override; warning
+    @(104.0000 mm, 149.2400 mm): PTH pad 13 [<no net>] of J1
+[net_conflict]: Al pad le falta la red indicada por el esquema (unconnected-(U1-NC-Pad1))
+    Local override; warning
+    @(114.0000 mm, 156.0000 mm): PTH pad 1 [<no net>] of U1
+[net_conflict]: Al pad le falta la red indicada por el esquema (unconnected-(U1-NC-Pad4))
+    Local override; warning
+    @(114.0000 mm, 163.6200 mm): PTH pad 4 [<no net>] of U1
+
+** Ignored checks **
+    - Footprint has no courtyard defined
+    - Track endpoint not centered on via
+    - Tuning profile track geometries
+    - Footprint doesn't match symbol's footprint filters
+    - Footprint component type doesn't match footprint pads
+
+** End of Report **
