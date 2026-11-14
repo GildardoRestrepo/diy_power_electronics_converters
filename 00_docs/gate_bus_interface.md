@@ -1,18 +1,6 @@
 ---
-title: "Gate bus interface specification"
-created: 2026-11-13
-time: ""
-creator: "Fable 5.1"
-last update: 2026-11-13
-update by: "Fable 5.1"
+title: Gate bus interface specification
 type: reference
-status: draft
-stage: ""
-area: control
-editor: "Gilbert"
-order: 0
-tags:
-  - type/reference
 ---
 # Gate bus interface specification
 

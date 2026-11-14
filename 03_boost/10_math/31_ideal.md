@@ -1,18 +1,6 @@
 ---
 title: "Boost converter 110 V → 300 V: ideal design"
-created: 2026-11-13
-time: ""
-creator: "Fable 5.1"
-last update: 2026-11-13
-update by: "Fable 5.1"
 type: calculation
-status: draft
-stage: 1
-area: power
-editor: "Gilbert"
-order: 1
-tags:
-  - type/calculation
 ---
 # Boost converter 110 V → 300 V: ideal design
 
@@ -21,16 +9,16 @@ tags:
 
 ## 1. Design premises
 
-| Parameter | Value | Note |
-| --------- | ----- | ---- |
-| Input voltage ($V_{in}$) | $110\,\mathrm{V}$ nominal, $60$–$120\,\mathrm{V}$ | Lab DC supply (110 V max.) |
-| Output voltage ($V_o$) | $300\,\mathrm{V}$ | Feeds the buck or the inverter box, or a series lamp bank |
-| Rated output power ($P_o$) | $200\,\mathrm{W}$ | |
-| Output current ($I_o$) | $0.667\,\mathrm{A}$ | $R = V_o^2/P_o = 450\,\Omega$ |
-| Switching frequency ($f_{sw}$) | $20\,\mathrm{kHz}$ nominal, $5$–$50\,\mathrm{kHz}$ usable | IGBT up to 20 kHz, MOSFET up to 50 kHz |
-| Inductor current ripple target | $\leq 40\,\%$ of $I_L$ at nominal | Same $4.7\,\mathrm{mH}$ inductor as the buck box |
-| Output voltage ripple target | $\leq 1\,\%$ | |
-| Control | Open loop, duty cycle set on the gating block | Over-voltage trip mandatory (see section 6) |
+|           Parameter            |                           Value                           |                           Note                            |
+| :----------------------------: | :-------------------------------------------------------: | :-------------------------------------------------------: |
+|    Input voltage ($V_{in}$)    |     $110\,\mathrm{V}$ nominal, $60$–$120\,\mathrm{V}$     |                Lab DC supply (110 V max.)                 |
+|     Output voltage ($V_o$)     |                     $300\,\mathrm{V}$                     | Feeds the buck or the inverter box, or a series lamp bank |
+|   Rated output power ($P_o$)   |                     $200\,\mathrm{W}$                     |                                                           |
+|     Output current ($I_o$)     |                    $0.667\,\mathrm{A}$                    |               $R = V_o^2/P_o = 450\,\Omega$               |
+| Switching frequency ($f_{sw}$) | $20\,\mathrm{kHz}$ nominal, $5$–$50\,\mathrm{kHz}$ usable |          IGBT up to 20 kHz, MOSFET up to 50 kHz           |
+| Inductor current ripple target |             $\leq 40\,\%$ of $I_L$ at nominal             |     Same $4.7\,\mathrm{mH}$ inductor as the buck box      |
+|  Output voltage ripple target  |                       $\leq 1\,\%$                        |                                                           |
+|            Control             |       Open loop, duty cycle set on the gating block       |        Over-voltage trip mandatory (see section 6)        |
 
 ---
 ## 2. Topology and operating point

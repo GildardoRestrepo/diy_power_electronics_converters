@@ -1,18 +1,6 @@
 ---
 title: "Six-pulse rectifier: design with losses"
-created: 2026-11-13
-time: ""
-creator: "Fable 5.1"
-last update: 2026-11-13
-update by: "Fable 5.1"
 type: calculation
-status: draft
-stage: 1
-area: power
-editor: "Gilbert"
-order: 2
-tags:
-  - type/calculation
 ---
 # Six-pulse rectifier: design with losses
 

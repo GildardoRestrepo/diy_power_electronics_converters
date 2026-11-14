@@ -1,18 +1,6 @@
 ---
 title: "Six-pulse rectifier: ideal design"
-created: 2026-11-13
-time: ""
-creator: "Fable 5.1"
-last update: 2026-11-13
-update by: "Fable 5.1"
 type: calculation
-status: draft
-stage: 1
-area: power
-editor: "Gilbert"
-order: 1
-tags:
-  - type/calculation
 ---
 # Six-pulse rectifier: ideal design
 
@@ -21,14 +9,14 @@ tags:
 
 ## 1. Design premises
 
-| Parameter | Value | Note |
-| --------- | ----- | ---- |
-| Line voltage at the bridge ($V_{LL}$) | $208\,\mathrm{V_{rms}}$ | Lab mains or transformer secondary of the same ratio |
-| Line frequency ($f$) | $60\,\mathrm{Hz}$ | Colombia |
-| Rated DC current ($I_d$) | $5\,\mathrm{A}$ | Continuous, lamp bank or reactor load |
-| Maximum DC current | $8\,\mathrm{A}$ | 10 min, heatsink-limited (see losses report) |
-| Load | Resistive (lamps) or RL (reactor) | $L_{load}$ large enough for continuous $i_d$ |
-| Pulse number | 6 | Single box; 12 or 24 with several boxes |
+|               Parameter               |               Value               |                         Note                         |
+| :-----------------------------------: | :-------------------------------: | :--------------------------------------------------: |
+| Line voltage at the bridge ($V_{LL}$) |      $208\,\mathrm{V_{rms}}$      | Lab mains or transformer secondary of the same ratio |
+|         Line frequency ($f$)          |         $60\,\mathrm{Hz}$         |                       Colombia                       |
+|       Rated DC current ($I_d$)        |          $5\,\mathrm{A}$          |        Continuous, lamp bank or reactor load         |
+|          Maximum DC current           |          $8\,\mathrm{A}$          |     10 min, heatsink-limited (see losses report)     |
+|                 Load                  | Resistive (lamps) or RL (reactor) |     $L_{load}$ large enough for continuous $i_d$     |
+|             Pulse number              |                 6                 |       Single box; 12 or 24 with several boxes        |
 
 Each box must be **electrically floating**: for 12- and 24-pulse operation the DC outputs of several bridges are connected in series (or in parallel through an interphase transformer), so no terminal of the bridge can be bonded to chassis or to the other boxes.
 

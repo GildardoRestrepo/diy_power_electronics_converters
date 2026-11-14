@@ -1,18 +1,6 @@
 ---
-title: "Architecture decisions"
-created: 2026-11-13
-time: ""
-creator: "Fable 5.1"
-last update: 2026-11-13
-update by: "Fable 5.1"
-type: adr
-status: accepted
-stage: ""
-area: management
-editor: "Gilbert"
-order: 0
-tags:
-  - type/adr
+title: Architecture decisions
+type: reference
 ---
 # Architecture decisions
 
