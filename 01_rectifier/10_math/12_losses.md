@@ -127,3 +127,7 @@ so a $20\,\mathrm{mH}$ reactor gives $0.7\,\mathrm{A_{pp}}$ ($14\,\%$ of $5\,\ma
 ## Links
 - [Rectifier ideal design](11_ideal.md)
 - [Project README](../../README.md)
+
+---
+## Enlaces
+[[power_electronics|Power Electronics]]

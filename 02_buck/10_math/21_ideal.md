@@ -137,3 +137,7 @@ With $320\,\mathrm{V}$ maximum input plus turn-off overshoot, **600 V devices** 
 - [Boost ideal design](../../03_boost/10_math/31_ideal.md)
 - [Gate bus interface](../../00_docs/gate_bus_interface.md)
 - [Project README](../../README.md)
+
+---
+## Enlaces
+[[power_electronics|Power Electronics]]

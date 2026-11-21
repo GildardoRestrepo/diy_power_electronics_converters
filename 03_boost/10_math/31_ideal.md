@@ -141,3 +141,7 @@ $$
 - [Buck ideal design](../../02_buck/10_math/21_ideal.md)
 - [Gate bus interface](../../00_docs/gate_bus_interface.md)
 - [Project README](../../README.md)
+
+---
+## Enlaces
+[[power_electronics|Power Electronics]]

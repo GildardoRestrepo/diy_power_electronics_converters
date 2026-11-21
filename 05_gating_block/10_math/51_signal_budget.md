@@ -148,3 +148,7 @@ Protection: $1.1\,\mathrm{A}$ resettable fuse and a series Schottky diode (rever
 - [Gate bus interface](../../00_docs/gate_bus_interface.md)
 - [Architecture decisions](../../00_docs/architecture.md)
 - [Project README](../../README.md)
+
+---
+## Enlaces
+[[power_electronics|Power Electronics]]

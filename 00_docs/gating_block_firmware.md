@@ -72,3 +72,7 @@ OLED 128×64 with a three-line layout: mode and state on line 1, the parameter b
 - [Gating block signal budget](../05_gating_block/10_math/51_signal_budget.md)
 - [Gate bus interface](gate_bus_interface.md)
 - [Project README](../README.md)
+
+---
+## Enlaces
+[[power_electronics|Power Electronics]]

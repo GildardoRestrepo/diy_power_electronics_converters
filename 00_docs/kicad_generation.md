@@ -74,3 +74,7 @@ The same values are written to the `.kicad_pro` net classes (with their patterns
 - [Architecture decisions](architecture.md)
 - [Gate bus interface](gate_bus_interface.md)
 - [Project README](../README.md)
+
+---
+## Enlaces
+[[power_electronics|Power Electronics]]

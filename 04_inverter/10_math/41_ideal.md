@@ -121,3 +121,7 @@ $$
 - [Inverter design with losses](42_losses.md)
 - [Gate bus interface](../../00_docs/gate_bus_interface.md)
 - [Project README](../../README.md)
+
+---
+## Enlaces
+[[power_electronics|Power Electronics]]

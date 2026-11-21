@@ -99,3 +99,7 @@ type: reference
 ## Links
 - [Gate bus interface](gate_bus_interface.md)
 - [Project README](../README.md)
+
+---
+## Enlaces
+[[power_electronics|Power Electronics]]
