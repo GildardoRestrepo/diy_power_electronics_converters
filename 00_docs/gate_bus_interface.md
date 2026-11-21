@@ -92,6 +92,6 @@ The box header is mounted on the PCB at the board edge, accessible through a slo
 
 ---
 ## Links
-- [Gating block signal budget](../05_gating_block/10_math/01_signal_budget.md)
+- [Gating block signal budget](../05_gating_block/10_math/51_signal_budget.md)
 - [Architecture decisions](architecture.md)
 - [Project README](../README.md)

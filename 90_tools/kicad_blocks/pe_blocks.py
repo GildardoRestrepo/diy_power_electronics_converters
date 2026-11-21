@@ -75,12 +75,13 @@ NETCLASS_BASE = dict(bus_width=12, clearance=0.2, diff_pair_gap=0.25, diff_pair_
                      wire_width=6)
 
 # Net classes shared by the power boards. Patterns are fnmatch on the net name.
-# Power (2.5 mm / 2.0 mm clearance) only for nets that touch parts with >= 5 mm pad pitch (terminals, TO-220/247,
-# fuses, bus capacitors, power resistors); nets reaching 2.54 mm-pitch parts (LEDs, DIP, 1/4 W resistors) use
-# HV_signal (0.6 mm, IPC-2221 B4 for 300 V under solder mask) or Default.
+# Power: 2.5 mm tracks; 2.0 mm clearance enforced by the <project>.kicad_dru rule that pcb_from_sch.py writes,
+# except against pads of fine-pitch footprints (DIP, LED, 1/4 W, SIP modules), where the netclass value (0.6 mm,
+# IPC-2221 B4 for 300 V under solder mask) applies and the router reaches the pad with a 0.8 mm neck.
+# HV_signal: 0.5 / 0.6 mm for high-voltage nets that only feed small parts.
 POWER_CLASSES = [
     dict(NETCLASS_BASE, name="Default"),
-    dict(NETCLASS_BASE, name="Power", clearance=2.0, track_width=2.5, via_diameter=1.6, via_drill=0.8),
+    dict(NETCLASS_BASE, name="Power", clearance=0.6, track_width=2.5, via_diameter=1.6, via_drill=0.8),
     dict(NETCLASS_BASE, name="HV_signal", clearance=0.6, track_width=0.5, via_diameter=0.8, via_drill=0.4),
     dict(NETCLASS_BASE, name="Aux", clearance=0.3, track_width=0.5, via_diameter=0.8, via_drill=0.4),
 ]

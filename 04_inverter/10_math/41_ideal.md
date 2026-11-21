@@ -118,6 +118,6 @@ $$
 
 ---
 ## Links
-- [Inverter design with losses](02_losses.md)
+- [Inverter design with losses](42_losses.md)
 - [Gate bus interface](../../00_docs/gate_bus_interface.md)
 - [Project README](../../README.md)

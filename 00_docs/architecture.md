@@ -98,5 +98,4 @@ type: reference
 ---
 ## Links
 - [Gate bus interface](gate_bus_interface.md)
-- [Documentation style guide](style.md)
 - [Project README](../README.md)

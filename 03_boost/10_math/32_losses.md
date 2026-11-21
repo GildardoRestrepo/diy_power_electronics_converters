@@ -139,6 +139,6 @@ The switch tab (collector) is at the switch node and the diode tab (cathode) at 
 
 ---
 ## Links
-- [Boost ideal design](01_ideal.md)
-- [Buck design with losses](../../02_buck/10_math/02_losses.md)
+- [Boost ideal design](31_ideal.md)
+- [Buck design with losses](../../02_buck/10_math/22_losses.md)
 - [Project README](../../README.md)

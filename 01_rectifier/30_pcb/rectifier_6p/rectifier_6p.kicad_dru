@@ -1,0 +1,4 @@
+(version 1)
+(rule "power_clearance"
+  (condition "(A.NetClass == 'Power' || B.NetClass == 'Power') && !(A.memberOfFootprint('D7') || B.memberOfFootprint('D7'))")
+  (constraint clearance (min 2.0mm)))

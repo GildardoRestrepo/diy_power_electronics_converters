@@ -36,6 +36,35 @@ def prop(node, key, name):
     return None
 
 
+def pj_rules(pro):
+    """Clases con separación > 1 mm del .kicad_pro: para ellas se escribe la regla de 'huellas finas'."""
+    pj = json.load(open(pro, encoding="utf-8"))
+    return [(c["name"], c["clearance"]) for c in pj.get("net_settings", {}).get("classes", [])
+            if c.get("clearance", 0) > 1.0 or c["name"] == "Power"]
+
+
+def write_dru(base, b, classes, pitch=4.0, power_clr=2.0):
+    """<proyecto>.kicad_dru: las redes de potencia guardan `power_clr` con todo, salvo con los pads de las
+    huellas de paso fino (DIP, LED, resistencias 1/4 W, módulos SIP), donde rige la clase (0.6 mm). Así una red
+    de potencia puede llegar a un pin de un DIP sin violar el DRC entre pines vecinos."""
+    import math
+    small = []
+    for fp in b.GetFootprints():
+        pts = [(pcbnew.ToMM(p.GetPosition().x), pcbnew.ToMM(p.GetPosition().y)) for p in fp.Pads()]
+        if any(math.hypot(a[0] - c[0], a[1] - c[1]) < pitch for i, a in enumerate(pts) for c in pts[i + 1:]):
+            small.append(fp.GetReference())
+    names = [n for n, _ in classes] or ["Power"]
+    is_pwr = " || ".join(f"A.NetClass == '{n}' || B.NetClass == '{n}'" for n in names)
+    in_small = " || ".join(f"A.memberOfFootprint('{r}') || B.memberOfFootprint('{r}')" for r in small) or "0"
+    text = (f"(version 1)\n"
+            f"(rule \"power_clearance\"\n"
+            f"  (condition \"({is_pwr}) && !({in_small})\")\n"
+            f"  (constraint clearance (min {power_clr}mm)))\n")
+    with open(base + ".kicad_dru", "w", encoding="utf-8", newline="\n") as f:
+        f.write(text)
+    print(f"regla DRC de potencia escrita ({len(small)} huellas de paso fino exentas)")
+
+
 def main():
     pro = sys.argv[1]
     layers = int(sys.argv[sys.argv.index("--layers") + 1]) if "--layers" in sys.argv else 2
@@ -130,6 +159,7 @@ def main():
         if path not in kept:
             b.Remove(fp)
     b.Save(pcb)
+    write_dru(base, b, pj_rules(pro))
     # registrar la placa en el .kicad_pro
     pj = json.load(open(pro, encoding="utf-8"))
     pj["boards"] = pj.get("boards") or []

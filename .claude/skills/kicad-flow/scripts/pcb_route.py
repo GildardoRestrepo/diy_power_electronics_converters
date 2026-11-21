@@ -35,7 +35,8 @@ from pcbnew import VECTOR2I, FromMM as M, ToMM as T
 
 DEFAULTS = dict(grid=0.25, clearance=0.2, edge_clearance=0.5, hole_clearance=0.25, track=0.2, fanout_track=0.3,
                 via=[0.6, 0.3], margin=0.06, via_cost=8.0, layer_cost=[1.0, 1.15], turn_cost=0.3,
-                plane_nets=["GND", "VCC"], priority=[], max_attempts=6, classes=[])
+                plane_nets=["GND", "VCC"], priority=[], max_attempts=6, classes=[], small_pitch=4.0,
+                small_clearance=0.6, small_track=0.8)
 DIRS = [(1, 0, 1.0), (-1, 0, 1.0), (0, 1, 1.0), (0, -1, 1.0),
         (1, 1, 1.414), (1, -1, 1.414), (-1, 1, 1.414), (-1, -1, 1.414)]
 LAYERS = [pcbnew.F_Cu, pcbnew.B_Cu]
@@ -52,6 +53,11 @@ class Router:
         self.MARG = c["margin"]
         self.only = only_nets
         self.classes = c["classes"]
+        # huellas "de paso fino" (distancia mínima entre pads < small_pitch): sus pads se separan solo
+        # small_clearance de cualquier red y las redes anchas llegan a ellos con un cuello de small_track
+        # (ver la regla del .kicad_dru que escribe pcb_from_sch.py). pads_mode: "all" | "big" | "small".
+        self.pads_mode = "all"
+        self.small_fp = set(small_footprints(self.b, c["small_pitch"]))
         bb = self.b.GetBoardEdgesBoundingBox()
         self.X0, self.Y0, self.X1, self.Y1 = T(bb.GetLeft()), T(bb.GetTop()), T(bb.GetRight()), T(bb.GetBottom())
         self.NX = int(round((self.X1 - self.X0) / self.G)) + 1
@@ -74,6 +80,12 @@ class Router:
         """Separación que exige la red `name` (la de su clase o la global), combinada con la de la pasada."""
         cl = self.net_class(name) if name else None
         return max(self.CLR, cl.get("clearance", self.CLR) if cl else self.CLR)
+
+    def pad_clr(self, pad, ref):
+        """Separación de un pad: la de su red, salvo en huellas de paso fino (small_clearance)."""
+        if ref in self.small_fp:
+            return max(min(self.CLR, self.c["small_clearance"]), self.c["small_clearance"])
+        return self.clr_of(pad.GetNetname()) if pad.GetNetCode() > 0 else self.CLR
 
     # ------------------------------------------------------------ grilla
     def cx(self, i): return self.X0 + i * self.G
@@ -135,7 +147,7 @@ class Router:
                     continue
                 layers = [li for li, Lr in enumerate(LAYERS) if p.IsOnLayer(Lr)]
                 key = net if net > 0 else -1
-                pclr = self.clr_of(p.GetNetname()) if net > 0 else CLR
+                pclr = self.pad_clr(p, fp.GetReference())
                 for li in layers:
                     self.mark(self.occ[li], self.rect_dist(rc), rc, pclr + TW / 2 + MARG, key)
                     self.mark(self.vocc[li], self.rect_dist(rc), rc, pclr + VD / 2 + MARG, key)
@@ -361,6 +373,18 @@ class Router:
 
         sig = [n for n in self.pads_by_net if self.nets[n] not in planes and len(self.pads_by_net[n]) > 1
                and (self.only is None or self.nets[n] in self.only)]
+        if self.pads_mode != "all":                # pasada ancha solo con pads grandes / cuello solo con finos
+            keep = {}
+            for n in sig:
+                sel = [e for e in self.pads_by_net[n] if (e[3] in self.small_fp) == (self.pads_mode == "small")]
+                if self.pads_mode == "small":
+                    if sel and self.existing.get(n):
+                        keep[n] = sel
+                elif len(sel) > 1:
+                    keep[n] = sel
+            sig = [n for n in sig if n in keep]
+            saved = self.pads_by_net
+            self.pads_by_net = dict(saved, **keep)
         rank = {name: k for k, name in enumerate(self.prio_list)}
 
         def hpwl(n):
@@ -425,12 +449,23 @@ class Router:
             removed += len(dead)
 
 
-def route_pass(pcb, cfg, only, label):
+def small_footprints(board, pitch):
+    """Referencias de las huellas con dos pads a menos de `pitch` mm (DIP, LED, resistencias 1/4 W, TMA...)."""
+    out = []
+    for fp in board.GetFootprints():
+        pts = [(T(p.GetPosition().x), T(p.GetPosition().y)) for p in fp.Pads() if p.GetNetCode() >= 0]
+        if any(math.hypot(a[0] - b[0], a[1] - b[1]) < pitch for i, a in enumerate(pts) for b in pts[i + 1:]):
+            out.append(fp.GetReference())
+    return out
+
+
+def route_pass(pcb, cfg, only, label, pads_mode="all"):
     """Rutea (con reintentos) las redes `only` y guarda la PCB. Devuelve la lista de fallos."""
     max_att = cfg.get("max_attempts", DEFAULTS["max_attempts"])
     extra, best = [], None
     for att in range(1, max_att + 1):
         r = Router(pcb, cfg, extra, only)
+        r.pads_mode = pads_mode
         fails = r.run()
         print(f"[{label}] intento {att}: {len(fails)} fallos {fails if fails else ''}")
         if best is None or len(fails) < len(best[1]):
@@ -467,7 +502,15 @@ def main():
         if not mine:
             continue
         ccfg = dict(cfg, **{k: v for k, v in cl.items() if k not in ("name", "patterns")})
-        fails += route_pass(pcb, ccfg, mine, cl.get("name", "clase"))
+        if ccfg.get("track", 0) > cfg.get("small_track", DEFAULTS["small_track"]):
+            # 1) tronco ancho entre los pads grandes; 2) cuellos finos desde los pads de paso fino al tronco
+            fails += route_pass(pcb, ccfg, mine, cl.get("name", "clase"), pads_mode="big")
+            neck = dict(ccfg, track=cfg.get("small_track", DEFAULTS["small_track"]),
+                        clearance=cfg.get("small_clearance", DEFAULTS["small_clearance"]),
+                        via=cfg.get("via", DEFAULTS["via"]), via_cost=cfg.get("via_cost", DEFAULTS["via_cost"]))
+            fails += route_pass(pcb, neck, mine, cl.get("name", "clase") + "/cuellos", pads_mode="small")
+        else:
+            fails += route_pass(pcb, ccfg, mine, cl.get("name", "clase"))
     rest = {n for n in names if n not in assigned}
     if rest:
         fails += route_pass(pcb, cfg, rest, "resto")

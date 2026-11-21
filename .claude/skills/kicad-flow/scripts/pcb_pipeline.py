@@ -16,6 +16,18 @@ PY = os.environ.get("KICAD_PYTHON", "C:/Program Files/KiCad/10.0/bin/python.exe"
 STEPS = ["from_sch", "place", "route", "silk", "check"]
 
 
+def keep_erc(pro, erc=None):
+    """pcbnew.SaveBoard() reescribe el .kicad_pro sin la sección 'erc' (matriz de pines del ERC): se guarda
+    antes de cada paso de pcbnew y se restaura después."""
+    import json
+    pj = json.load(open(pro, encoding="utf-8"))
+    if erc is None:
+        return pj.get("erc")
+    if erc and "erc" not in pj:
+        pj["erc"] = erc
+        json.dump(pj, open(pro, "w", encoding="utf-8", newline="\n"), indent=2, ensure_ascii=False)
+
+
 def run(cmd):
     print("+", " ".join(os.path.basename(c) if c.endswith(".py") else c for c in cmd), flush=True)
     return subprocess.run(cmd).returncode
@@ -28,14 +40,17 @@ def main():
     proj_dir = os.path.dirname(os.path.abspath(pro))
     pcb = os.path.splitext(os.path.abspath(pro))[0] + ".kicad_pcb"
     rc, todo = 0, STEPS[STEPS.index(start):]
+    erc = keep_erc(pro)
     if "from_sch" in todo:
         rc = run([PY, "-I", os.path.join(HERE, "pcb_from_sch.py"), pro])
+        keep_erc(pro, erc)
         if rc:
             sys.exit(rc)
     for step, script in (("place", "pcb_place.py"), ("route", "pcb_route.py"), ("silk", "pcb_silk.py")):
         if step in todo:
             extra = ["--clean"] if step == "route" and "--keep-tracks" not in sys.argv else []
             r = run([PY, "-I", os.path.join(HERE, script), pcb, cfg] + extra)
+            keep_erc(pro, erc)
             rc = rc or (r if step == "route" else 0)
             if r and step != "route":
                 sys.exit(r)

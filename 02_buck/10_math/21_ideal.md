@@ -133,7 +133,7 @@ With $320\,\mathrm{V}$ maximum input plus turn-off overshoot, **600 V devices** 
 
 ---
 ## Links
-- [Buck design with losses](02_losses.md)
-- [Boost ideal design](../../03_boost/10_math/01_ideal.md)
+- [Buck design with losses](22_losses.md)
+- [Boost ideal design](../../03_boost/10_math/31_ideal.md)
 - [Gate bus interface](../../00_docs/gate_bus_interface.md)
 - [Project README](../../README.md)

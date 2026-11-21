@@ -137,7 +137,7 @@ $$
 
 ---
 ## Links
-- [Boost design with losses](02_losses.md)
-- [Buck ideal design](../../02_buck/10_math/01_ideal.md)
+- [Boost design with losses](32_losses.md)
+- [Buck ideal design](../../02_buck/10_math/21_ideal.md)
 - [Gate bus interface](../../00_docs/gate_bus_interface.md)
 - [Project README](../../README.md)

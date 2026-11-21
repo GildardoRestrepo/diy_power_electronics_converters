@@ -78,3 +78,8 @@ node_modules/
 
 # ----- Miscellaneous -----
 *.log
+
+# ----- KiCad generated outputs -----
+**/30_pcb/*/out/
+*.net
+pro_template.json

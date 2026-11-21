@@ -129,6 +129,6 @@ The PCB places the six devices in a row along one board edge, $15\,\mathrm{mm}$ 
 
 ---
 ## Links
-- [Inverter ideal design](01_ideal.md)
-- [Gating block signal and power budget](../../05_gating_block/10_math/01_signal_budget.md)
+- [Inverter ideal design](41_ideal.md)
+- [Gating block signal and power budget](../../05_gating_block/10_math/51_signal_budget.md)
 - [Project README](../../README.md)

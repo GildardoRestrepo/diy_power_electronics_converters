@@ -129,5 +129,5 @@ Series connection adds the DC voltages and keeps $I_d$; parallel connection (sam
 
 ---
 ## Links
-- [Rectifier design with losses](02_losses.md)
+- [Rectifier design with losses](12_losses.md)
 - [Project README](../../README.md)

@@ -137,6 +137,6 @@ The switch tab (collector) is at $V_{in}$ and the diode tab (cathode) is at the 
 
 ---
 ## Links
-- [Buck ideal design](01_ideal.md)
-- [Boost design with losses](../../03_boost/10_math/02_losses.md)
+- [Buck ideal design](21_ideal.md)
+- [Boost design with losses](../../03_boost/10_math/32_losses.md)
 - [Project README](../../README.md)
