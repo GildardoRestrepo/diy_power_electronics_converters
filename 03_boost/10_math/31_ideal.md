@@ -110,7 +110,7 @@ $$
 > [!WARNING]
 > In open loop the boost output has no upper limit: with no load, or in discontinuous conduction, $V_o$ rises far above $V_{in}/(1 - D)$ until something breaks. **Never run the boost without a load connected**, ramp $D$ from zero, and keep the over-voltage trip enabled.
 
-- **Over-voltage.** Output divider to a comparator, default trip at $360\,\mathrm{V}$; pulls `FAULT` low on the gate bus so the gating block stops the PWM. The $450\,\mathrm{V}$ capacitors and 600 V semiconductors survive the trip point with margin.
+- **Over-voltage.** Output divider to a comparator, default trip at $381\,\mathrm{V}$ (divider $2 \times 470\,\mathrm{k\Omega}$ over $6.2\,\mathrm{k\Omega}$, above the $340\,\mathrm{V}$ DC link of the inverter, see the architecture decisions); pulls `FAULT` low on the gate bus so the gating block stops the PWM. The $450\,\mathrm{V}$ capacitors and 600 V semiconductors survive the trip point with margin.
 - **Over-current.** $0.1\,\Omega$ shunt in the return rail (inductor current), trimmer threshold, default $3\,\mathrm{A}$.
 - **Start-up.** When $V_{in}$ is applied, $C_o$ charges through $L$ and $D_1$ even with $Q_1$ off; the $L$–$C_o$ resonance ($Z_0 = \sqrt{L/C_o} = 6.9\,\Omega$, $f_0 = 230\,\mathrm{Hz}$) would overshoot to nearly $2 V_{in}$. A $10\,\Omega$ NTC in the input lead damps it ($\zeta \approx 0.7$) and limits the first current peak to $\approx 11\,\mathrm{A}$.
 - **Test points.** `V_IN`, `SW`, `V_OUT`, `I_L` ($0.1\,\mathrm{V/A}$), `GND_P`.
