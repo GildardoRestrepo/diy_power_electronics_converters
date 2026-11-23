@@ -21,14 +21,14 @@ FP = pe.FP
 def build():
     d = Design(PROJECT, power_nets=("+12V", "GND"),
                title_block=dict(company="UPB - Power Electronics", rev="0.1",
-                                comments=["Boost converter box 110 V -> 300 V, 200 W, external 4.7 mH inductor"]))
+                                comments=["Boost converter box 110 V -> 300 V (340 V for the inverter), 200 W, external inductor"]))
     sh = d.root("A3", title="Boost converter 110 V -> 300 V (external gating block)")
 
     # --- Gate bus, driver cell (low-side switch) sharing the 15 V supply of the protection cell
     pe.gate_bus(sh, 20, 30, used=(1,), ref="J1")
     pe.driver_cell(sh, 1, 90, 30, "PWM1", "G1", "COM", supply=False, vcc="VCC9",
                    title="Gate driver Q1 (low side, supply VCC9 shared with the protection cell)")
-    pe.protection_cell(sh, 20, 90, "VCC9", "VOUT", "6k8", i_trip_label="3 A", ov_label="(V_OUT > 350 V)", with_supply=True)
+    pe.protection_cell(sh, 20, 90, "VCC9", "VOUT", "6k2", i_trip_label="3 A", ov_label="(V_OUT > 380 V)", with_supply=True)
 
     # --- Power stage
     sh.rect(180, 30, 400, 150, "Power stage: V_IN 60-120 V -> V_OUT 300 V, 20 kHz, L = 4.7 mH external")
@@ -49,12 +49,12 @@ def build():
     pe.test_point(sh, "TP5", "GND_P", 270, 135)
     pe.mounting_holes(sh, 300, 135)
     sh.text("Shunt R90 (0.1 ohm) between COM (internal power common, Q1 emitter) and GND_P (V_IN- terminal): "
-            "TP4-TP5 = 0.1 V/A of inductor current. Never run without load: the over-voltage trip at 350 V is the only limit.",
+            "TP4-TP5 = 0.1 V/A of inductor current. Never run without load: the over-voltage trip at 380 V is the only limit.",
             20, 160, size=1.5, bold=False)
 
     pro_tpl = pe.pro_template(os.path.join(HERE, "pro_template.json"))
-    patterns = {"/VIN+": "Power", "/VF": "Power", "/VIN": "Power", "/SW": "Power", "/VOUT": "Power", "/COM": "Power",
-                "/GND_P": "Power", "/G1": "HV_signal", "/VO1": "HV_signal", "/VCC9": "HV_signal",
+    patterns = {"/VIN+": "Power", "/VF": "Power", "/VIN": "Power", "/SW": "Power", "/VOUT": "Power", "/COM": "Return",
+                "/GND_P": "Return", "/G1": "HV_signal", "/VO1": "HV_signal", "/VCC9": "HV_signal",
                 "/VOUT_BL*": "HV_signal", "/OVMID": "HV_signal", "/ISENSE": "Aux", "/IREF*": "Aux",
                 "/OVSENSE": "Aux", "/VREF": "Aux", "/FLT*": "Aux"}
     d.write(OUT, template_pro=pro_tpl, netclasses=pe.POWER_CLASSES, patterns=patterns, rules=pe.RULES)
