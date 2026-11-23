@@ -10,7 +10,7 @@ DRC) y la red de cada pad (también las `unconnected-*` de los pines con marca d
 paridad de KiCad 10 exige). Si la PCB ya existe, conserva posición/rotación de las huellas con la misma
 ruta y las pistas/zonas existentes; las huellas que ya no están en el esquemático se eliminan.
 """
-import json, os, re, subprocess, sys
+import fnmatch, json, os, re, subprocess, sys
 
 import pcbnew
 from pcbnew import VECTOR2I, FromMM as M
@@ -43,7 +43,7 @@ def pj_rules(pro, text=None):
             if c.get("clearance", 0) > 1.0 or c["name"] == "Power"]
 
 
-def write_dru(base, b, classes, pitch=4.0, power_clr=2.0):
+def write_dru(base, b, classes, pitch=4.0, power_clr=2.0, domains=()):
     """<proyecto>.kicad_dru: las redes de potencia guardan `power_clr` con todo, salvo con los pads de las
     huellas de paso fino (DIP, LED, resistencias 1/4 W, módulos SIP), donde rige la clase (0.6 mm). Así una red
     de potencia puede llegar a un pin de un DIP sin violar el DRC entre pines vecinos."""
@@ -56,10 +56,21 @@ def write_dru(base, b, classes, pitch=4.0, power_clr=2.0):
     names = [n for n, _ in classes] or ["Power"]
     is_pwr = " || ".join(f"A.NetClass == '{n}' || B.NetClass == '{n}'" for n in names)
     in_small = " || ".join(f"A.memberOfFootprint('{r}') || B.memberOfFootprint('{r}')" for r in small) or "0"
+
+    def in_dom(side, d):
+        return " || ".join(f"{side}.NetName == '{n}'" for n in d)
+    # pares de redes del mismo dominio de tensión (pocos voltios entre sí): exentos de los 2 mm
+    same = " || ".join(f"(({in_dom('A', d)}) && ({in_dom('B', d)}))" for d in domains if d) or "0"
     text = (f"(version 1)\n"
             f"(rule \"power_clearance\"\n"
-            f"  (condition \"({is_pwr}) && !({in_small})\")\n"
+            f"  (condition \"({is_pwr}) && !({in_small}) && !({same})\")\n"
             f"  (constraint clearance (min {power_clr}mm)))\n")
+    # Los conectores IDC del bus de disparo van al borde con el cierre hacia fuera: su serigrafía puede salir.
+    idc = [fp.GetReference() for fp in b.GetFootprints() if fp.GetFPIDAsString().startswith("Connector_IDC:")]
+    for r in idc:
+        text += (f"(rule \"idc_silk_{r}\"\n  (layer \"F.SilkS\")\n"
+                 f"  (condition \"A.memberOfFootprint('{r}') && B.Layer == 'Edge.Cuts'\")\n"
+                 f"  (constraint silk_clearance) (severity ignore))\n")
     with open(base + ".kicad_dru", "w", encoding="utf-8", newline="\n") as f:
         f.write(text)
     print(f"regla DRC de potencia escrita ({len(small)} huellas de paso fino exentas)")
@@ -90,7 +101,12 @@ def main():
     else:
         b = pcbnew.CreateEmptyBoard()
         b.SetCopperLayerCount(layers)
+    # Las huellas existentes se reconocen por su ruta jerárquica y, si no coincide, por su referencia: el
+    # generador del esquemático crea uuids nuevos en cada corrida, así que la ruta casi nunca coincide.
     old = {fp.GetPath().AsString(): fp for fp in b.GetFootprints()}
+    old_by_ref = {fp.GetReference(): fp for fp in b.GetFootprints()}
+    reused = set()                                     # referencias de huellas existentes que se conservan
+    old_list = [(fp.GetPath().AsString(), fp.GetReference(), fp.GetFPIDAsString()) for fp in b.GetFootprints()]
 
     # redes (incluidas las `unconnected-*` de pines marcados como no conectados: la paridad del DRC las exige)
     nets = {}
@@ -102,7 +118,7 @@ def main():
         if b.FindNet(name) is None:
             b.Add(pcbnew.NETINFO_ITEM(b, name))
 
-    kept, loaded, missing_fp = set(), 0, []
+    kept, loaded, missing_fp, replaced = set(), 0, [], []
     for comp in find(first(tree, "components"), "comp"):
         ref, value, fpid = val(comp, "ref"), val(comp, "value"), val(comp, "footprint")
         if ref.startswith("#"):
@@ -114,6 +130,12 @@ def main():
         lib, name = fpid.split(":", 1)
         libpath = local_libs.get(lib, f"{FPDIR}/{lib}.pretty")
         fp = old.get(path)
+        if fp is None:
+            fp = old_by_ref.get(ref)
+        if fp is not None and fp.GetReference() in reused:
+            fp = None                                          # ya la tomó otro componente
+        if fp is not None:
+            reused.add(fp.GetReference())
         if fp is not None and fp.GetFPIDAsString() == fpid:
             pass                                                   # ya está: solo actualizar campos y redes
         else:
@@ -124,7 +146,7 @@ def main():
                 new.SetPosition(fp.GetPosition()); new.SetOrientation(fp.GetOrientation())
                 if fp.IsFlipped():
                     new.Flip(new.GetPosition(), False)
-                b.Remove(fp)
+                replaced.append(fp.GetReference())             # se quita al final, con una iteración fresca
             else:
                 new.SetPosition(VECTOR2I(M(50 + 10 * (loaded % 10)), M(50 + 10 * (loaded // 10))))
             new.SetFPIDAsString(fpid)
@@ -158,18 +180,27 @@ def main():
             name = nets.get((ref, p.GetNumber()))
             p.SetNetCode(b.FindNet(name).GetNetCode() if name else 0)
 
-    for path, fp in old.items():
-        if path not in kept:
-            b.Remove(fp)
+    # Quitar las huellas viejas que no se conservan. Tras el primer b.Remove(), SWIG devuelve objetos sin tipo
+    # al volver a recorrer la placa: se eligen todas las huellas a quitar ANTES de quitar la primera.
+    gone = {(pth, fid) for pth, ref, fid in old_list if ref not in reused or ref in replaced}
+    targets = [f for f in b.GetFootprints() if (f.GetPath().AsString(), f.GetFPIDAsString()) in gone]
+    for f in targets:
+        b.Remove(f)
+    removed = len(targets)
     b.Save(pcb)
-    write_dru(base, b, pj_rules(pro, pro_text))
+    # dominios de tensión del pcb_config.json (opcional, 2.º argumento): nombres exactos de red
+    cfg_path = next((a for a in sys.argv[2:] if a.endswith(".json")), None)
+    domains = json.load(open(cfg_path, encoding="utf-8")).get("route", {}).get("domains", []) if cfg_path else []
+    netnames = set(nets.values())
+    domains = [[n for n in netnames if any(fnmatch.fnmatchcase(n, p) for p in d)] for d in domains]
+    write_dru(base, b, pj_rules(pro, pro_text), domains=domains)
     # restaurar el .kicad_pro original (ERC, clases de red, reglas) y registrar la placa
     pj = json.loads(pro_text)
     pj["boards"] = pj.get("boards") or []
     json.dump(pj, open(pro, "w", encoding="utf-8", newline="\n"), indent=2, ensure_ascii=False)
     os.remove(net)
     print(f"PCB: {len(kept)} huellas ({loaded} cargadas), {len(set(nets.values()))} redes, "
-          f"eliminadas: {len(old) - len(set(old) & kept)}")
+          f"conservadas: {len(reused) - len(replaced)}, eliminadas: {removed}")
     if missing_fp:
         print("SIN HUELLA:", ", ".join(missing_fp))
         sys.exit(1)

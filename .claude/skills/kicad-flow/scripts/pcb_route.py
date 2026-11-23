@@ -29,6 +29,13 @@ redes sin clase con los valores globales. En cada pasada la separación a un obs
 la de la clase que se rutea y la de la red del obstáculo (así una señal fina respeta los 2 mm de una
 red de potencia). Usar los mismos valores en `net_settings` del .kicad_pro para que el DRC coincida.
 
+Dominios de tensión (`domains`, opcional): listas de patrones de red que están dentro de unos pocos voltios
+entre sí, p. ej. el nodo de conmutación y la alimentación flotante de su driver:
+   "domains": [["/SW", "/G1", "/VO1", "/VCC1"]]
+Al rutear una red de un dominio, las demás redes del mismo dominio se separan solo `small_clearance`
+(0.6 mm); los 2 mm de la clase de potencia se mantienen frente a todo lo demás. pcb_from_sch.py escribe la
+misma excepción en la regla del .kicad_dru, así que el DRC y el router coinciden.
+
 Verificar siempre después con DRC (`kicad_check.sh`, que rellena zonas).
 """
 import fnmatch, heapq, json, math, os, sys
@@ -55,6 +62,7 @@ class Router:
         self.MARG = c["margin"]
         self.only = only_nets
         self.classes = c["classes"]
+        self.same_domain = c.get("same_domain") or []     # patrones del dominio de las redes de esta pasada
         # huellas "de paso fino" (distancia mínima entre pads < small_pitch): sus pads se separan solo
         # small_clearance de cualquier red y las redes anchas llegan a ellos con un cuello de small_track
         # (ver la regla del .kicad_dru que escribe pcb_from_sch.py). pads_mode: "all" | "big" | "small".
@@ -79,7 +87,10 @@ class Router:
         return None
 
     def clr_of(self, name):
-        """Separación que exige la red `name` (la de su clase o la global), combinada con la de la pasada."""
+        """Separación que exige la red `name` (la de su clase o la global), combinada con la de la pasada.
+        Dentro del dominio de tensión de la pasada basta `small_clearance`."""
+        if name and any(fnmatch.fnmatchcase(name, p) for p in self.same_domain):
+            return self.c["small_clearance"]
         cl = self.net_class(name) if name else None
         return max(self.CLR, cl.get("clearance", self.CLR) if cl else self.CLR)
 
@@ -156,6 +167,11 @@ class Router:
                 if p.GetAttribute() == pcbnew.PAD_ATTRIB_PTH:
                     for li in range(2):
                         self.mark(self.vocc[li], self.rect_dist(rc), rc, pclr + VD / 2 + MARG, key)
+                    # separación agujero-agujero: vale también para vías de la MISMA red (regla hole_to_hole)
+                    c0, hr = (T(p.GetPosition().x), T(p.GetPosition().y)), T(p.GetDrillSize().x) / 2
+                    hb = (c0[0] - hr, c0[1] - hr, c0[0] + hr, c0[1] + hr)
+                    for li in range(2):
+                        self.mark(self.vocc[li], self.circ_dist(c0, hr), hb, self.c["hole_clearance"] + self.VDR / 2 + MARG, -1)
                 if net > 0:
                     self.nets[net] = p.GetNetname()
                     self.pads_by_net.setdefault(net, []).append((p, rc, layers, fp.GetReference()))
@@ -224,6 +240,9 @@ class Router:
         for li in range(2):
             self.mark(self.occ[li], self.circ_dist(p, r), box, clr + self.TW / 2 + self.MARG, net)
             self.mark(self.vocc[li], self.circ_dist(p, r), box, max(clr, 0.25) + self.VD / 2 + self.MARG, net)
+            # agujero-agujero con otras vías, también de la misma red
+            self.mark(self.vocc[li], self.circ_dist(p, self.VDR / 2), box,
+                      self.c["hole_clearance"] + self.VDR / 2 + self.MARG, -1)
 
     def add_track(self, a, c, li, net, w):
         t = pcbnew.PCB_TRACK(self.b)
@@ -397,15 +416,21 @@ class Router:
 
         for net in sig:
             plist = self.pads_by_net[net][:]
-            tree = set(self.pad_cells(plist[0][1], plist[0][2], net, plist[0][0])) | self.existing.get(net, set())
+            if self.pads_mode == "small":
+                # pasada de cuellos: el árbol es el tronco ya ruteado; TODOS los pads finos deben llegar a él
+                tree, done = set(self.existing.get(net, set())), []
+                anchors = [self.xy(k) for _, k in list(tree)[::max(1, len(tree) // 60)]]
+            else:
+                tree = set(self.pad_cells(plist[0][1], plist[0][2], net, plist[0][0])) | self.existing.get(net, set())
+                done, anchors = [plist.pop(0)], []
             if not tree:                                   # primer pad totalmente bloqueado (p. ej. solapado)
                 self.fails.append(f"{self.nets[net]}: {plist[0][3]}.{plist[0][0].GetNumber()} (pad bloqueado)")
                 continue
-            done = [plist.pop(0)]
             while plist:
                 def dist_to_done(e):
                     ex, ey = (e[1][0] + e[1][2]) / 2, (e[1][1] + e[1][3]) / 2
-                    return min(math.hypot(ex - (d[1][0] + d[1][2]) / 2, ey - (d[1][1] + d[1][3]) / 2) for d in done)
+                    pts = [((d[1][0] + d[1][2]) / 2, (d[1][1] + d[1][3]) / 2) for d in done] + anchors
+                    return min(math.hypot(ex - x, ey - y) for x, y in pts)
                 plist.sort(key=dist_to_done)
                 p, rc, layers, ref = plist.pop(0)
                 starts = self.pad_cells(rc, layers, net, p)
@@ -496,22 +521,36 @@ def route_board(pcb, cfg, clean):
     b = pcbnew.LoadBoard(pcb)
     names = [n.GetNetname() for n in b.GetNetInfo().NetsByNetcode().values() if n.GetNetCode() > 0]
     del b
+    domains = cfg.get("domains", [])
+
+    def domain_of(n):
+        for d in domains:
+            if any(fnmatch.fnmatchcase(n, p) for p in d):
+                return tuple(d)
+        return ()
+
     assigned, fails = set(), []
     for cl in classes:
         mine = {n for n in names if n not in assigned and any(fnmatch.fnmatchcase(n, p) for p in cl["patterns"])}
         assigned |= mine
         if not mine:
             continue
-        ccfg = dict(cfg, **{k: v for k, v in cl.items() if k not in ("name", "patterns")})
-        if ccfg.get("track", 0) > cfg.get("small_track", DEFAULTS["small_track"]):
-            # 1) tronco ancho entre los pads grandes; 2) cuellos finos desde los pads de paso fino al tronco
-            fails += route_pass(pcb, ccfg, mine, cl.get("name", "clase"), pads_mode="big")
-            neck = dict(ccfg, track=cfg.get("small_track", DEFAULTS["small_track"]),
-                        clearance=cfg.get("small_clearance", DEFAULTS["small_clearance"]),
-                        via=cfg.get("via", DEFAULTS["via"]), via_cost=cfg.get("via_cost", DEFAULTS["via_cost"]))
-            fails += route_pass(pcb, neck, mine, cl.get("name", "clase") + "/cuellos", pads_mode="small")
-        else:
-            fails += route_pass(pcb, ccfg, mine, cl.get("name", "clase"))
+        # una pasada por dominio de tensión: así las redes del mismo dominio pueden acercarse entre sí
+        groups = {}
+        for n in sorted(mine):
+            groups.setdefault(domain_of(n), set()).add(n)
+        for dom, nets in sorted(groups.items(), key=lambda kv: len(kv[0])):
+            label = cl.get("name", "clase") + (f"[{dom[0]}]" if dom else "")
+            ccfg = dict(cfg, **{k: v for k, v in cl.items() if k not in ("name", "patterns")}, same_domain=list(dom))
+            if ccfg.get("track", 0) > cfg.get("small_track", DEFAULTS["small_track"]):
+                # 1) tronco ancho entre los pads grandes; 2) cuellos finos desde los pads de paso fino al tronco
+                fails += route_pass(pcb, ccfg, nets, label, pads_mode="big")
+                neck = dict(ccfg, track=cfg.get("small_track", DEFAULTS["small_track"]),
+                            clearance=cfg.get("small_clearance", DEFAULTS["small_clearance"]),
+                            via=cfg.get("via", DEFAULTS["via"]), via_cost=cfg.get("via_cost", DEFAULTS["via_cost"]))
+                fails += route_pass(pcb, neck, nets, label + "/cuellos", pads_mode="small")
+            else:
+                fails += route_pass(pcb, ccfg, nets, label)
     rest = {n for n in names if n not in assigned}
     if rest:
         fails += route_pass(pcb, cfg, rest, "resto")

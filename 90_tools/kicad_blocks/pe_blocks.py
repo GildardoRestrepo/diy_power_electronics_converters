@@ -33,7 +33,7 @@ FP = dict(
     TRIM="Potentiometer_THT:Potentiometer_Bourns_3296W_Vertical",
     C_100n="Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm",
     C_10n="Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm",
-    C_10u25="Capacitor_THT:C_Radial_D5.0mm_H11.0mm_P2.00mm",
+    C_10u25="Capacitor_THT:C_Radial_D6.3mm_H11.0mm_P2.50mm",       # 2.5 mm: cabe 0.6 mm entre pads
     C_100u25="Capacitor_THT:C_Radial_D8.0mm_H11.5mm_P3.50mm",
     C_47u450="Capacitor_THT:C_Radial_D16.0mm_H25.0mm_P7.50mm",
     C_4u7_400="Capacitor_THT:C_Rect_L31.5mm_W15.0mm_P27.50mm_MKS4",
@@ -83,6 +83,10 @@ POWER_CLASSES = [
     dict(NETCLASS_BASE, name="Default"),
     dict(NETCLASS_BASE, name="Power", clearance=0.6, track_width=2.5, via_diameter=1.6, via_drill=0.8),
     dict(NETCLASS_BASE, name="HV_signal", clearance=0.6, track_width=0.5, via_diameter=0.8, via_drill=0.4),
+    # Return: retornos de potencia a 0 V (COM, GND_P): pista de 1.5 mm (menos de 2 A en estas cajas), con solo
+    # 0.6 mm frente a la lógica de protección que vive en su mismo dominio; los 2 mm frente a las redes de alta
+    # tensión los impone la regla de la clase Power del otro lado.
+    dict(NETCLASS_BASE, name="Return", clearance=0.6, track_width=1.5, via_diameter=1.6, via_drill=0.8),
     dict(NETCLASS_BASE, name="Aux", clearance=0.3, track_width=0.5, via_diameter=0.8, via_drill=0.4),
 ]
 
@@ -188,12 +192,12 @@ def gate_bus(sh, x, y, used=(1,), ref="J1"):
     for k in range(1, 7):
         conns[str(4 + k)] = f"PWM{k}" if k in used else "NC"
     sh.part("Connector_Generic:Conn_02x08_Odd_Even", ref, "GATE_BUS", x + 10, y + 10, conns, fp=FP["IDC16"])
-    sh.two("Device:C_Polarized", "C01", "10u/25V", x + 30, y + 4, "+12V", "GND", fp=FP["C_10u25"])
-    sh.two("Device:C", "C02", "100n", x + 36, y + 4, "+12V", "GND", fp=FP["C_100n"])
-    sh.two("Device:R", "R01", "1k", x + 30, y + 22, "EN", "EN_LED", fp=FP["R"])
-    sh.two("Device:LED", "D01", "GREEN", x + 40, y + 22, "GND", "EN_LED", fp=FP["LED3"])
-    sh.part("power:PWR_FLAG", "#FLG01", "PWR_FLAG", x + 46, y + 4, {"1": "+12V"})
-    sh.part("power:PWR_FLAG", "#FLG02", "PWR_FLAG", x + 46, y + 14, {"1": "GND"})
+    sh.two("Device:C_Polarized", "C80", "10u/25V", x + 30, y + 4, "+12V", "GND", fp=FP["C_10u25"])
+    sh.two("Device:C", "C81", "100n", x + 36, y + 4, "+12V", "GND", fp=FP["C_100n"])
+    sh.two("Device:R", "R80", "1k", x + 30, y + 22, "EN", "EN_LED", fp=FP["R"])
+    sh.two("Device:LED", "D80", "GREEN", x + 40, y + 22, "GND", "EN_LED", fp=FP["LED3"])
+    sh.part("power:PWR_FLAG", "#FLG80", "PWR_FLAG", x + 46, y + 4, {"1": "+12V"})
+    sh.part("power:PWR_FLAG", "#FLG81", "PWR_FLAG", x + 46, y + 14, {"1": "GND"})
 
 
 def dc_bus_caps(sh, x, y, pos, neg, refs, n_elec=1, film=True, title="DC bus"):

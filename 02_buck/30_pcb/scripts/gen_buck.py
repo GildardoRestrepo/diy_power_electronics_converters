@@ -52,8 +52,8 @@ def build():
             size=1.5, bold=False)
 
     pro_tpl = pe.pro_template(os.path.join(HERE, "pro_template.json"))
-    patterns = {"/VIN+": "Power", "/VF": "Power", "/VIN": "Power", "/SW": "Power", "/VOUT": "Power", "/COM": "Power",
-                "/GND_P": "Power", "/G1": "HV_signal", "/VO1": "HV_signal", "/VCC1": "HV_signal",
+    patterns = {"/VIN+": "Power", "/VF": "Power", "/VIN": "Power", "/SW": "Power", "/VOUT": "Power", "/COM": "Return",
+                "/GND_P": "Return", "/G1": "HV_signal", "/VO1": "HV_signal", "/VCC1": "HV_signal",
                 "/VOUT_BL*": "HV_signal", "/OVMID": "HV_signal", "/VCC9": "Aux", "/ISENSE": "Aux", "/IREF*": "Aux",
                 "/OVSENSE": "Aux", "/VREF": "Aux", "/FLT*": "Aux"}
     d.write(OUT, template_pro=pro_tpl, netclasses=pe.POWER_CLASSES, patterns=patterns, rules=pe.RULES)

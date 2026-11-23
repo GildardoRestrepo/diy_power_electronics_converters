@@ -29,7 +29,7 @@ def main():
     pcb = os.path.splitext(os.path.abspath(pro))[0] + ".kicad_pcb"
     rc, todo = 0, STEPS[STEPS.index(start):]
     if "from_sch" in todo:
-        rc = run([PY, "-I", os.path.join(HERE, "pcb_from_sch.py"), pro])
+        rc = run([PY, "-I", os.path.join(HERE, "pcb_from_sch.py"), pro, cfg])
         if rc:
             sys.exit(rc)
     for step, script in (("place", "pcb_place.py"), ("route", "pcb_route.py"), ("silk", "pcb_silk.py")):

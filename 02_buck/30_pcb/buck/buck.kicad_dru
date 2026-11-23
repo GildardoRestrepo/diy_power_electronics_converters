@@ -1,0 +1,8 @@
+(version 1)
+(rule "power_clearance"
+  (condition "(A.NetClass == 'Power' || B.NetClass == 'Power') && !(A.memberOfFootprint('C12') || B.memberOfFootprint('C12') || A.memberOfFootprint('J1') || B.memberOfFootprint('J1') || A.memberOfFootprint('RV9') || B.memberOfFootprint('RV9') || A.memberOfFootprint('U1') || B.memberOfFootprint('U1') || A.memberOfFootprint('U9') || B.memberOfFootprint('U9') || A.memberOfFootprint('D2') || B.memberOfFootprint('D2') || A.memberOfFootprint('PS9') || B.memberOfFootprint('PS9') || A.memberOfFootprint('U10') || B.memberOfFootprint('U10') || A.memberOfFootprint('D80') || B.memberOfFootprint('D80') || A.memberOfFootprint('D90') || B.memberOfFootprint('D90') || A.memberOfFootprint('C80') || B.memberOfFootprint('C80') || A.memberOfFootprint('PS1') || B.memberOfFootprint('PS1')) && !(((A.NetName == '/VIN+' || A.NetName == '/VIN' || A.NetName == '/VF') && (B.NetName == '/VIN+' || B.NetName == '/VIN' || B.NetName == '/VF')) || ((A.NetName == '/VO1' || A.NetName == '/VCC1' || A.NetName == '/SW' || A.NetName == '/G1') && (B.NetName == '/VO1' || B.NetName == '/VCC1' || B.NetName == '/SW' || B.NetName == '/G1')))")
+  (constraint clearance (min 2.0mm)))
+(rule "idc_silk_J1"
+  (layer "F.SilkS")
+  (condition "A.memberOfFootprint('J1') && B.Layer == 'Edge.Cuts'")
+  (constraint silk_clearance) (severity ignore))
