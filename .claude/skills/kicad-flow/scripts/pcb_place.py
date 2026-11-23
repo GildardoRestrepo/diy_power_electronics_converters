@@ -14,7 +14,8 @@ Es idempotente: reemplaza contorno, planos y zonas de exclusión cada vez. Secci
   "keepouts":[{"name": "Antena", "rect": [x, y, ancho, alto], "layers": ["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]}]
              (zona de exclusión: sin pistas, vías, pads, rellenos ni huellas; p. ej. bajo la antena de un ESP32)
 
-Además deja sin red los pads de pines no conectados (`unconnected-*`), como espera la paridad de KiCad 10.
+Las redes `unconnected-*` de los pines con marca de no conexión se conservan tal como las dejó
+pcb_from_sch.py: la paridad del DRC de KiCad 10 las exige (sin ellas da `net_conflict`).
 """
 import json, sys
 import pcbnew
@@ -30,13 +31,7 @@ def L(name):
         raise SystemExit(f"Capa desconocida: {name}")
     return lid
 
-# 1) pads de pines sin conexión: sin red
-for fp in b.GetFootprints():
-    for p in fp.Pads():
-        if p.GetNetname().startswith("unconnected-"):
-            p.SetNetCode(0)
-
-# 2) colocación
+# 1) colocación
 missing = []
 for fp in b.GetFootprints():
     ref = fp.GetReference()
@@ -57,7 +52,7 @@ for fp in b.GetFootprints():
     else:
         raise SystemExit(f"{ref}: ancla desconocida {anc}")
 
-# 3) contorno rectangular
+# 2) contorno rectangular
 for d in list(b.GetDrawings()):
     if d.GetLayer() == pcbnew.Edge_Cuts:
         b.Remove(d)
@@ -66,7 +61,7 @@ r.SetStart(VECTOR2I(M(X0), M(Y0))); r.SetEnd(VECTOR2I(M(X0 + W), M(Y0 + H)))
 r.SetLayer(pcbnew.Edge_Cuts); r.SetWidth(M(CFG["board"].get("edge_width", 0.1)))
 b.Add(r)
 
-# 4) planos y zonas de exclusión (se rehacen siempre)
+# 3) planos y zonas de exclusión (se rehacen siempre)
 for z in list(b.Zones()):
     b.Remove(z)
 
@@ -121,7 +116,7 @@ pcbnew.ZONE_FILLER(b).Fill(b.Zones())
 b.Save(PCB)
 print("OK; sin posición en el JSON:", missing or "ninguna")
 
-# 5) informe de colocación: courtyard de cada huella (relativo al origen de la placa), solapes y huellas
+# 4) informe de colocación: courtyard de cada huella (relativo al origen de la placa), solapes y huellas
 #    fuera del contorno. Permite corregir el JSON antes de rutear (el ruteo es el paso lento).
 T = pcbnew.ToMM
 boxes = []

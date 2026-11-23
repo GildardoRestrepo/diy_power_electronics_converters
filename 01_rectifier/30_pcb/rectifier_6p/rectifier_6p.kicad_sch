@@ -2,7 +2,7 @@
 	(version 20260306)
 	(generator "eeschema")
 	(generator_version "10.0")
-	(uuid "40e14593-6e09-4baf-a422-5309368f9379")
+	(uuid "d6b4b11a-3ec3-4e08-a552-14d8304a84ed")
 	(paper "A3")
 	(title_block
 		(title "Six-pulse rectifier (6P box)")
@@ -1795,7 +1795,7 @@
 		(fill
 			(type none)
 		)
-		(uuid "12b1b463-b4ee-47f8-8c5d-acf8e24c287b")
+		(uuid "07aee785-e89f-4507-a949-cd471bfc92ed")
 	)
 	(text "AC input 208 V LL"
 		(exclude_from_sim no)
@@ -1807,7 +1807,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "b60cf891-8b9b-4514-8247-1ce26a7b94c3")
+		(uuid "dd9df9a6-7cca-4223-83e1-b752c148b244")
 	)
 	(symbol
 		(lib_id "Connector:Screw_Terminal_01x03")
@@ -1820,7 +1820,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced no)
-		(uuid "de082a09-f1b9-4ae1-a680-88718f4a9016")
+		(uuid "270b32bd-62a2-497b-b18b-344f293f6ca5")
 		(property "Reference" "J1"
 			(at 27.94 55.88 0)
 			(show_name no)
@@ -1877,17 +1877,17 @@
 			)
 		)
 		(pin "1"
-			(uuid "68f71740-d0b9-4811-83ff-6f27e7eefac1")
+			(uuid "59148d64-c5ad-4f8d-b465-2cdc7db91e31")
 		)
 		(pin "2"
-			(uuid "1913b5ab-d400-435d-9137-a4db3351d710")
+			(uuid "42594701-5125-455b-a0b5-fa897c55e5a6")
 		)
 		(pin "3"
-			(uuid "f565d8ea-2f78-4fbd-b403-3b5e39482e2e")
+			(uuid "308199fa-2738-4fc5-aa0f-18b8587ce542")
 		)
 		(instances
 			(project "rectifier_6p"
-				(path "/40e14593-6e09-4baf-a422-5309368f9379"
+				(path "/d6b4b11a-3ec3-4e08-a552-14d8304a84ed"
 					(reference "J1")
 					(unit 1)
 				)
@@ -1903,7 +1903,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "58242d39-de67-4c50-9142-c559bb20a420")
+		(uuid "1611978e-c052-4861-8d8b-1ddd6b342044")
 	)
 	(label "A"
 		(at 22.86 57.15 180)
@@ -1913,7 +1913,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "31576aae-4ef3-4b1e-aba5-4870ffc83830")
+		(uuid "5b6d3a45-6b5e-4f09-9750-358591d3dfc7")
 	)
 	(wire
 		(pts
@@ -1924,7 +1924,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "e12ca769-cbd2-4998-a72a-67bddfe8c0e9")
+		(uuid "ac9fb0c1-d8c3-4329-a3a0-6fb39650f572")
 	)
 	(label "B"
 		(at 22.86 59.69 180)
@@ -1934,7 +1934,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "7a90ac79-8d7e-4f9c-900f-e86e0e9719c5")
+		(uuid "cc38f9cd-29e7-43b3-96a3-58be4e9e6fbe")
 	)
 	(wire
 		(pts
@@ -1945,7 +1945,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "7b32210e-52a0-475c-abcf-f56f2ef4c6d2")
+		(uuid "63cbcd96-abf6-4fe9-843b-9386ae3e10a7")
 	)
 	(label "C"
 		(at 22.86 62.23 180)
@@ -1955,7 +1955,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "e8b9a34e-b8b0-4c9e-9354-c88e11614715")
+		(uuid "63f4a0cd-167e-4a0a-ba5c-6b3bea29a051")
 	)
 	(symbol
 		(lib_id "Device:Fuse")
@@ -1968,7 +1968,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced no)
-		(uuid "ebb607ca-ec7e-4bcf-a61c-04d14554965b")
+		(uuid "728a64f0-eb6b-4fd9-b139-f9033448f2f6")
 		(property "Reference" "F1"
 			(at 62.23 48.26 0)
 			(show_name no)
@@ -2025,14 +2025,14 @@
 			)
 		)
 		(pin "1"
-			(uuid "107dfc76-170f-40e6-a034-57c43ad0efce")
+			(uuid "2b35b72c-3025-4b9b-9629-4d65f8dcc3ce")
 		)
 		(pin "2"
-			(uuid "b16dd0ee-15da-4228-82f1-cca80ab8055e")
+			(uuid "94047871-d2ad-4c38-b303-ac13cc098ac2")
 		)
 		(instances
 			(project "rectifier_6p"
-				(path "/40e14593-6e09-4baf-a422-5309368f9379"
+				(path "/d6b4b11a-3ec3-4e08-a552-14d8304a84ed"
 					(reference "F1")
 					(unit 1)
 				)
@@ -2048,7 +2048,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "386a9d2f-aa7a-4044-bcd3-4dd86d4c449f")
+		(uuid "5b56a15b-1d5c-4260-b604-013088467b47")
 	)
 	(label "A"
 		(at 59.69 43.18 90)
@@ -2058,7 +2058,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "bb83fc22-06f1-4e7d-afbf-5b73ee78b4d9")
+		(uuid "503f90b0-f508-4eaf-92c0-9eaba1c00135")
 	)
 	(wire
 		(pts
@@ -2069,7 +2069,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "5e86eddb-9e5e-41bc-a5b8-1e2095217247")
+		(uuid "f69ae456-39d1-4b62-ad0c-52ff119f1f7a")
 	)
 	(label "A_F"
 		(at 59.69 55.88 270)
@@ -2079,7 +2079,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "894bf3d8-3ffb-465b-8a08-ed75a556efdb")
+		(uuid "46d26033-fce6-4d1f-af18-d536885114a0")
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
@@ -2092,7 +2092,7 @@
 		(in_pos_files no)
 		(dnp no)
 		(fields_autoplaced no)
-		(uuid "2c371d48-03b7-4e0b-8ab7-aa0acfcc35a3")
+		(uuid "b827172b-fd63-4f52-b9ac-9f4773e17214")
 		(property "Reference" "TP1"
 			(at 92.71 48.26 0)
 			(show_name no)
@@ -2149,11 +2149,11 @@
 			)
 		)
 		(pin "1"
-			(uuid "030e909b-f1ae-4c84-9061-7a46cfa020ac")
+			(uuid "bd13e844-5446-4f22-87b6-aedd9f929250")
 		)
 		(instances
 			(project "rectifier_6p"
-				(path "/40e14593-6e09-4baf-a422-5309368f9379"
+				(path "/d6b4b11a-3ec3-4e08-a552-14d8304a84ed"
 					(reference "TP1")
 					(unit 1)
 				)
@@ -2169,7 +2169,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "253c86ee-5b84-47c0-918e-486b73edff8b")
+		(uuid "5b6fd0e7-43e3-461c-8b83-a4260969f518")
 	)
 	(label "A_F"
 		(at 90.17 52.07 270)
@@ -2179,7 +2179,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "ff24fe3d-eae5-4a7f-a626-e26e7b7f684e")
+		(uuid "f9af2acb-025f-4305-9915-780a5cf71ff7")
 	)
 	(symbol
 		(lib_id "Device:Fuse")
@@ -2192,7 +2192,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced no)
-		(uuid "e8c5f3c1-1bd2-4d88-8e94-fc846ec2af6d")
+		(uuid "4348bd56-c28d-4663-bcdd-d80a31129226")
 		(property "Reference" "F2"
 			(at 62.23 63.5 0)
 			(show_name no)
@@ -2249,14 +2249,14 @@
 			)
 		)
 		(pin "1"
-			(uuid "89492ec5-8784-44cc-95d6-64fec3d02e6c")
+			(uuid "1dcc8be3-85d2-42e3-8b5d-9cbdb5d63b56")
 		)
 		(pin "2"
-			(uuid "c59bb8f5-33ff-455e-9a5f-eca5da029aeb")
+			(uuid "14b3bc97-5f7e-4249-94d1-c7df61274db3")
 		)
 		(instances
 			(project "rectifier_6p"
-				(path "/40e14593-6e09-4baf-a422-5309368f9379"
+				(path "/d6b4b11a-3ec3-4e08-a552-14d8304a84ed"
 					(reference "F2")
 					(unit 1)
 				)
@@ -2272,7 +2272,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "bfd67231-59d9-4d52-99d7-ec606db02af7")
+		(uuid "edacb8a8-486a-4ec6-bf70-0ab6218dd701")
 	)
 	(label "B"
 		(at 59.69 58.42 90)
@@ -2282,7 +2282,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "eedfdf65-893a-4f3d-a82c-efc4a3902068")
+		(uuid "e9b04d8f-8250-4558-a0da-9375d7ba3bcf")
 	)
 	(wire
 		(pts
@@ -2293,7 +2293,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "053b45fb-5ce4-49c2-ba0c-b0f5f621e310")
+		(uuid "8e21b7d2-c6bd-46e9-9423-4e3a26f113af")
 	)
 	(label "B_F"
 		(at 59.69 71.12 270)
@@ -2303,7 +2303,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "b70c2f37-d6dc-4949-9997-92941dac5c2c")
+		(uuid "088d8ca8-96f2-4be4-b8c9-f687f68d7292")
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
@@ -2316,7 +2316,7 @@
 		(in_pos_files no)
 		(dnp no)
 		(fields_autoplaced no)
-		(uuid "328ea0ed-9cd5-44a9-92ed-d6f0e616941f")
+		(uuid "84175518-066b-4522-b65d-deb3fc93fba2")
 		(property "Reference" "TP2"
 			(at 92.71 63.5 0)
 			(show_name no)
@@ -2373,11 +2373,11 @@
 			)
 		)
 		(pin "1"
-			(uuid "bfc0ec31-81c2-4a41-89be-a93dd0e54cfc")
+			(uuid "770f8392-673f-4573-a77f-e97d44c19c11")
 		)
 		(instances
 			(project "rectifier_6p"
-				(path "/40e14593-6e09-4baf-a422-5309368f9379"
+				(path "/d6b4b11a-3ec3-4e08-a552-14d8304a84ed"
 					(reference "TP2")
 					(unit 1)
 				)
@@ -2393,7 +2393,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "be890155-0046-468c-bb43-08120be994b0")
+		(uuid "1c30da8d-892e-4914-8097-f059204c8c5c")
 	)
 	(label "B_F"
 		(at 90.17 67.31 270)
@@ -2403,7 +2403,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "36a8d2b2-6a0e-48dd-95e8-d4ba8828e291")
+		(uuid "58320e15-5b77-4337-b01b-7b26ee1d840e")
 	)
 	(symbol
 		(lib_id "Device:Fuse")
@@ -2416,7 +2416,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced no)
-		(uuid "5c181cdd-4d8b-4525-9107-d1708a2ef2c3")
+		(uuid "bfaedfa6-7757-42f7-8c3f-2d5d25048c60")
 		(property "Reference" "F3"
 			(at 62.23 78.74 0)
 			(show_name no)
@@ -2473,14 +2473,14 @@
 			)
 		)
 		(pin "1"
-			(uuid "d80f44b0-a5f0-4575-a34c-592758878214")
+			(uuid "1152519c-09fc-4d1c-919d-3793aacd2b9b")
 		)
 		(pin "2"
-			(uuid "3feb3bae-767e-405b-9fef-1d5c941f6586")
+			(uuid "f161f814-4068-48af-95d8-66ea87b814ab")
 		)
 		(instances
 			(project "rectifier_6p"
-				(path "/40e14593-6e09-4baf-a422-5309368f9379"
+				(path "/d6b4b11a-3ec3-4e08-a552-14d8304a84ed"
 					(reference "F3")
 					(unit 1)
 				)
@@ -2496,7 +2496,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "5718fe78-5bbc-46ec-a731-975b89e0c9df")
+		(uuid "68d93be6-d7b1-48e4-834b-f5d64118d312")
 	)
 	(label "C"
 		(at 59.69 73.66 90)
@@ -2506,7 +2506,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "a7d95950-606f-43ec-bc4b-6bfdec283c60")
+		(uuid "45943b17-ee08-48dc-af6f-591f81da927a")
 	)
 	(wire
 		(pts
@@ -2517,7 +2517,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "5e968b51-844d-49b0-822a-5bd7a2ac9780")
+		(uuid "79d928aa-87da-47f6-874a-f2bdb69911a8")
 	)
 	(label "C_F"
 		(at 59.69 86.36 270)
@@ -2527,7 +2527,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "bee4872a-06e0-48c1-9d12-c1dfdfab5b46")
+		(uuid "89dc5f86-9385-4e4c-b21f-3d773ac756f2")
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
@@ -2540,7 +2540,7 @@
 		(in_pos_files no)
 		(dnp no)
 		(fields_autoplaced no)
-		(uuid "cf9d6353-ef91-44d1-848b-cf16c9cecc56")
+		(uuid "dea9df65-c4ea-4e23-ba24-659da4184de1")
 		(property "Reference" "TP3"
 			(at 92.71 78.74 0)
 			(show_name no)
@@ -2597,11 +2597,11 @@
 			)
 		)
 		(pin "1"
-			(uuid "6ee387e2-3103-4b26-bccf-9ba535322fd6")
+			(uuid "822aeb54-9388-488b-8b93-9b5d4ac21fdd")
 		)
 		(instances
 			(project "rectifier_6p"
-				(path "/40e14593-6e09-4baf-a422-5309368f9379"
+				(path "/d6b4b11a-3ec3-4e08-a552-14d8304a84ed"
 					(reference "TP3")
 					(unit 1)
 				)
@@ -2617,7 +2617,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "5604c30b-94af-4504-9228-4309cc76c0f2")
+		(uuid "093879da-3e5b-4c8e-8007-6c316841e0e3")
 	)
 	(label "C_F"
 		(at 90.17 82.55 270)
@@ -2627,7 +2627,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "081ebe2d-1bb6-48d8-8d1b-fa89dff130eb")
+		(uuid "ac3629c9-d302-4e86-84ef-b4a5818705de")
 	)
 	(rectangle
 		(start 120 30)
@@ -2639,7 +2639,7 @@
 		(fill
 			(type none)
 		)
-		(uuid "6e39154f-2f01-453b-bd1d-4ad7952d9091")
+		(uuid "396b9550-ea71-4b04-8dc9-43c3ef4873c8")
 	)
 	(text "Graetz bridge, 6 x 20ETS08 (800 V, 20 A)"
 		(exclude_from_sim no)
@@ -2651,7 +2651,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "c64bc603-9421-459e-9502-b9a913331e63")
+		(uuid "e60824cc-fabe-4816-9e1f-9c0e23abe18e")
 	)
 	(symbol
 		(lib_id "Device:D")
@@ -2664,7 +2664,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced no)
-		(uuid "1fb3edf2-acc4-483d-9044-263102a42c00")
+		(uuid "4ea2254b-98bc-4a28-97dd-785fd4b64b56")
 		(property "Reference" "D1"
 			(at 139.7 45.72 0)
 			(show_name no)
@@ -2719,14 +2719,14 @@
 			)
 		)
 		(pin "1"
-			(uuid "29197ec4-c3cc-4903-93e7-8317300303c0")
+			(uuid "f13d8599-9c8a-4b60-a5d7-654ff00b5fd9")
 		)
 		(pin "2"
-			(uuid "49cc01e7-a0fb-4b78-af2f-e286d0e17ab0")
+			(uuid "e327259a-4724-48e4-8139-0b03128f8bec")
 		)
 		(instances
 			(project "rectifier_6p"
-				(path "/40e14593-6e09-4baf-a422-5309368f9379"
+				(path "/d6b4b11a-3ec3-4e08-a552-14d8304a84ed"
 					(reference "D1")
 					(unit 1)
 				)
@@ -2742,7 +2742,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "36a26f7a-ccc3-4b39-a8e7-0ed9e301569a")
+		(uuid "ddd727d1-78f5-4e36-bfca-85a2f78b01f4")
 	)
 	(label "DC+"
 		(at 133.35 49.53 180)
@@ -2752,7 +2752,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "597bbe25-c9b9-451d-951f-e8f1c25ef7ec")
+		(uuid "687dea13-2e82-4997-abc0-3d527501e149")
 	)
 	(wire
 		(pts
@@ -2763,7 +2763,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "67a716cc-0055-40ae-a562-1cacc0e9699e")
+		(uuid "7ae3cc66-aa67-43ac-b036-33e07eb03200")
 	)
 	(label "A_F"
 		(at 146.05 49.53 0)
@@ -2773,7 +2773,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "6d0836c2-0d73-48b2-8e5b-88d624e745e2")
+		(uuid "36d51725-d89f-466e-b567-d3e0e9f0215e")
 	)
 	(symbol
 		(lib_id "Device:D")
@@ -2786,7 +2786,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced no)
-		(uuid "71e81407-38ee-40cb-b8f2-ad9473934e66")
+		(uuid "58bc1dcd-bd2e-4290-96cd-e8a44587120a")
 		(property "Reference" "D4"
 			(at 139.7 86.36 0)
 			(show_name no)
@@ -2841,14 +2841,14 @@
 			)
 		)
 		(pin "1"
-			(uuid "6a0409d9-ca14-4fb7-bcc4-7167c9a1dc30")
+			(uuid "2e04d5cb-64af-4c65-abf4-0f968a316230")
 		)
 		(pin "2"
-			(uuid "08e0b49b-61b7-4ed5-b0cd-5039c77b6de6")
+			(uuid "3cfd90a6-5942-4e77-86e4-89956b82a30a")
 		)
 		(instances
 			(project "rectifier_6p"
-				(path "/40e14593-6e09-4baf-a422-5309368f9379"
+				(path "/d6b4b11a-3ec3-4e08-a552-14d8304a84ed"
 					(reference "D4")
 					(unit 1)
 				)
@@ -2864,7 +2864,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "465c0d86-c16e-4050-8d5e-803db0901f38")
+		(uuid "930e723a-bc48-43e4-a9c3-5c7fbf75a814")
 	)
 	(label "A_F"
 		(at 133.35 90.17 180)
@@ -2874,7 +2874,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "8427be61-d97b-426e-9f16-920929b834fc")
+		(uuid "3e5810cc-56d6-4b84-9f50-471c1d5a4046")
 	)
 	(wire
 		(pts
@@ -2885,7 +2885,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "116898ad-161f-49dc-b7e0-7b6400aa089d")
+		(uuid "0998ab5b-c27f-4c4a-923b-8ccb22c089d4")
 	)
 	(label "DCN"
 		(at 146.05 90.17 0)
@@ -2895,7 +2895,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "132109a1-139a-41de-8026-871e2ee2847b")
+		(uuid "05f72f2a-ca97-4fba-a54a-64e1a43ea358")
 	)
 	(symbol
 		(lib_id "Device:D")
@@ -2908,7 +2908,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced no)
-		(uuid "b67c8ab7-c2e8-4cea-b71e-d703b8e14692")
+		(uuid "7db1e190-f2db-47ae-9919-5773cf752617")
 		(property "Reference" "D3"
 			(at 170.18 45.72 0)
 			(show_name no)
@@ -2963,14 +2963,14 @@
 			)
 		)
 		(pin "1"
-			(uuid "c3d67728-9e6c-474b-a17d-928e486429f6")
+			(uuid "a07a898d-2275-4279-8e44-c4327006190d")
 		)
 		(pin "2"
-			(uuid "f10e7dab-5d7b-4e01-8a7f-a488797c622c")
+			(uuid "db98b3c9-046a-4e81-8588-e38d5a034736")
 		)
 		(instances
 			(project "rectifier_6p"
-				(path "/40e14593-6e09-4baf-a422-5309368f9379"
+				(path "/d6b4b11a-3ec3-4e08-a552-14d8304a84ed"
 					(reference "D3")
 					(unit 1)
 				)
@@ -2986,7 +2986,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "8d7352f3-e49f-4fa0-978f-642326fbb3cf")
+		(uuid "17a0287b-4ad0-44e1-9c7a-b4ad0e18a08d")
 	)
 	(label "DC+"
 		(at 163.83 49.53 180)
@@ -2996,7 +2996,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "d1fbf514-7077-4aca-8e76-dbfdf8260f4b")
+		(uuid "b140887d-da34-46c6-bfb0-aabbfa60130a")
 	)
 	(wire
 		(pts
@@ -3007,7 +3007,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "52794c19-5ee3-420a-9ada-7fd559af966e")
+		(uuid "76867e37-f6da-4956-a985-5ee6054328f7")
 	)
 	(label "B_F"
 		(at 176.53 49.53 0)
@@ -3017,7 +3017,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "dfd8c0fb-37b1-4c4d-a49e-953ed5c318fc")
+		(uuid "c389c88f-7c1e-4558-85b9-0b332a6fc53d")
 	)
 	(symbol
 		(lib_id "Device:D")
@@ -3030,7 +3030,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced no)
-		(uuid "0358f693-e05a-477a-884d-ac07b923c083")
+		(uuid "d58a259e-88d3-4970-9b00-c33fbdc1e590")
 		(property "Reference" "D6"
 			(at 170.18 86.36 0)
 			(show_name no)
@@ -3085,14 +3085,14 @@
 			)
 		)
 		(pin "1"
-			(uuid "ecfa203b-67f3-4bba-9ecd-dd0a51dffa1c")
+			(uuid "959fbf1f-ed46-4fdd-b7bf-bbabc61b9d8a")
 		)
 		(pin "2"
-			(uuid "09d957e3-9eb7-46c2-bca7-9f49c0ba472e")
+			(uuid "d26bd062-e29d-4878-ab73-8cfdd182334c")
 		)
 		(instances
 			(project "rectifier_6p"
-				(path "/40e14593-6e09-4baf-a422-5309368f9379"
+				(path "/d6b4b11a-3ec3-4e08-a552-14d8304a84ed"
 					(reference "D6")
 					(unit 1)
 				)
@@ -3108,7 +3108,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "33dd60f8-69a6-4802-babb-b3e06bb6b264")
+		(uuid "b0caabe3-d605-4c63-a23f-f3d700b5ce33")
 	)
 	(label "B_F"
 		(at 163.83 90.17 180)
@@ -3118,7 +3118,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "9463b2c4-c2db-4902-a6eb-ffbc5a8ed8d9")
+		(uuid "fd6892a3-6146-46ca-bdb0-b089688fc678")
 	)
 	(wire
 		(pts
@@ -3129,7 +3129,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "7eac303a-71c2-4ea1-9494-ab3c8e641d08")
+		(uuid "e97ba614-561e-402d-902e-d031161aedd4")
 	)
 	(label "DCN"
 		(at 176.53 90.17 0)
@@ -3139,7 +3139,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "c3d4defe-6d9f-48c4-b154-5e43fc696265")
+		(uuid "f3514917-c0a6-4bce-b2fb-fb306dd423f5")
 	)
 	(symbol
 		(lib_id "Device:D")
@@ -3152,7 +3152,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced no)
-		(uuid "5e24f0b5-626f-47c1-b8cd-611899119574")
+		(uuid "5800a671-df82-47fe-a245-f443bc98f4eb")
 		(property "Reference" "D5"
 			(at 199.39 45.72 0)
 			(show_name no)
@@ -3207,14 +3207,14 @@
 			)
 		)
 		(pin "1"
-			(uuid "ddedcd18-34e2-46f8-8a90-70559e132c6a")
+			(uuid "7be1e91d-ec00-4534-8505-4954ea1b8a2a")
 		)
 		(pin "2"
-			(uuid "96cdddda-4929-46c0-a073-a385841b1876")
+			(uuid "8e7c726d-2695-4ca2-944f-93b715cf2369")
 		)
 		(instances
 			(project "rectifier_6p"
-				(path "/40e14593-6e09-4baf-a422-5309368f9379"
+				(path "/d6b4b11a-3ec3-4e08-a552-14d8304a84ed"
 					(reference "D5")
 					(unit 1)
 				)
@@ -3230,7 +3230,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "c14f2f08-da3a-46b7-94bb-e7228e3d8a3c")
+		(uuid "ac7fd42b-b367-46c7-8479-e49f94a74ae8")
 	)
 	(label "DC+"
 		(at 193.04 49.53 180)
@@ -3240,7 +3240,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "6a402f89-c18d-40c1-831a-7bc2f5745837")
+		(uuid "9cbb19bb-754b-40de-a086-534b60eece71")
 	)
 	(wire
 		(pts
@@ -3251,7 +3251,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "91578619-f113-4de6-ab29-e17fff4bcfae")
+		(uuid "0b653da1-6d76-4a20-bacd-7489986c33e7")
 	)
 	(label "C_F"
 		(at 205.74 49.53 0)
@@ -3261,7 +3261,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "46542b0e-b14c-4f41-a248-c2dbc148389d")
+		(uuid "3e92e316-a8c1-49b7-8bc1-7bf690754d2a")
 	)
 	(symbol
 		(lib_id "Device:D")
@@ -3274,7 +3274,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced no)
-		(uuid "e51af2e3-638d-4b6e-a761-2adfc9b2de53")
+		(uuid "235baf72-00ae-420d-9a03-abb29b10dfb4")
 		(property "Reference" "D2"
 			(at 199.39 86.36 0)
 			(show_name no)
@@ -3329,14 +3329,14 @@
 			)
 		)
 		(pin "1"
-			(uuid "302bb4bd-f277-4793-8ebc-5037699f0ccd")
+			(uuid "bc8bcb09-1da4-4bb5-9555-3b13aba28d0c")
 		)
 		(pin "2"
-			(uuid "b9b65f20-b77d-4048-887a-18650cedeb7b")
+			(uuid "cf99ce92-7eec-4b2c-a9c7-a096528dd319")
 		)
 		(instances
 			(project "rectifier_6p"
-				(path "/40e14593-6e09-4baf-a422-5309368f9379"
+				(path "/d6b4b11a-3ec3-4e08-a552-14d8304a84ed"
 					(reference "D2")
 					(unit 1)
 				)
@@ -3352,7 +3352,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "d995b76a-4e6e-4a7f-8187-efd63ea20d98")
+		(uuid "2fea7e91-af4b-4e16-bd62-601fb0ea4d63")
 	)
 	(label "C_F"
 		(at 193.04 90.17 180)
@@ -3362,7 +3362,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "99477cff-0646-47a4-899f-8ee8350eea90")
+		(uuid "d0ac7b07-4356-4933-b407-6d5fb3734bd0")
 	)
 	(wire
 		(pts
@@ -3373,7 +3373,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "1861270b-eb56-4fc6-9813-c98423ae916e")
+		(uuid "78809fb6-c601-43c0-8f96-382b46c08d9a")
 	)
 	(label "DCN"
 		(at 205.74 90.17 0)
@@ -3383,7 +3383,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "84ba8f33-ae6e-484a-a47f-17036d52a7b4")
+		(uuid "68dedf35-a817-4860-84c5-e509aaf81214")
 	)
 	(rectangle
 		(start 240 30)
@@ -3395,7 +3395,7 @@
 		(fill
 			(type none)
 		)
-		(uuid "44a96f4d-6a5e-4d1b-aea2-d663308b3dd0")
+		(uuid "755142d0-192e-4756-a284-426b21bf0969")
 	)
 	(text "DC output: shunt 0.1 V/A, RC snubber, varistor, bleeder/pilot LED"
 		(exclude_from_sim no)
@@ -3407,7 +3407,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "fe9c901c-afa2-40f1-84e4-dd98c0d6ae9f")
+		(uuid "c815a563-df81-4ad4-8f25-3a8275acecb0")
 	)
 	(symbol
 		(lib_id "Device:R")
@@ -3420,7 +3420,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced no)
-		(uuid "3c26b0fe-064f-4d7b-af5a-b46dc04f0960")
+		(uuid "b90989fb-4701-4611-a426-6fc1696fd5af")
 		(property "Reference" "R1"
 			(at 252.73 99.06 0)
 			(show_name no)
@@ -3477,14 +3477,14 @@
 			)
 		)
 		(pin "1"
-			(uuid "ec98b6d3-265d-4c79-aac9-591f3ad5a944")
+			(uuid "564112eb-f8bb-4353-af56-4b4923b3ae4d")
 		)
 		(pin "2"
-			(uuid "ca29a274-0a57-4ab4-b73a-8d7d467cbe05")
+			(uuid "b5022603-c51a-46b0-b20b-3a4f42b46113")
 		)
 		(instances
 			(project "rectifier_6p"
-				(path "/40e14593-6e09-4baf-a422-5309368f9379"
+				(path "/d6b4b11a-3ec3-4e08-a552-14d8304a84ed"
 					(reference "R1")
 					(unit 1)
 				)
@@ -3500,7 +3500,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "dc29faca-f9cd-4d6f-b8c3-029e681f8e15")
+		(uuid "e684dd82-2d1f-4507-8784-65a297d20ddd")
 	)
 	(label "DCN"
 		(at 250.19 93.98 90)
@@ -3510,7 +3510,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "a16fc865-d8e9-47fe-8c2c-b503f276b9f9")
+		(uuid "8a4860e1-06ae-4b8d-9711-255948b17aba")
 	)
 	(wire
 		(pts
@@ -3521,7 +3521,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "d7af3e01-0f5d-4ffc-909f-beb7e3984b45")
+		(uuid "82c0be7b-e163-44f8-a609-64ed331bd766")
 	)
 	(label "DC-"
 		(at 250.19 106.68 270)
@@ -3531,7 +3531,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "b74db6a6-727b-4ef8-b9d7-830863eab3a7")
+		(uuid "7a05a74e-e67e-4635-813c-4c44ae02136c")
 	)
 	(symbol
 		(lib_id "Device:R")
@@ -3544,7 +3544,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced no)
-		(uuid "dc30c8b1-546f-4047-8cb8-8bc47a3c0c3b")
+		(uuid "86e2cd14-109f-4295-b8ea-085f6fe40cac")
 		(property "Reference" "R2"
 			(at 273.05 48.26 0)
 			(show_name no)
@@ -3601,14 +3601,14 @@
 			)
 		)
 		(pin "1"
-			(uuid "9ded70ec-ef75-4a1d-a2da-af7d600aec4f")
+			(uuid "4945a9bc-81c9-4906-a8f8-2f968cc14734")
 		)
 		(pin "2"
-			(uuid "ea5295ac-072e-4edf-af68-dd22aa58d5ec")
+			(uuid "2078be5c-74c5-4485-9c44-39f7a145e0fd")
 		)
 		(instances
 			(project "rectifier_6p"
-				(path "/40e14593-6e09-4baf-a422-5309368f9379"
+				(path "/d6b4b11a-3ec3-4e08-a552-14d8304a84ed"
 					(reference "R2")
 					(unit 1)
 				)
@@ -3624,7 +3624,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "ba3b6bbf-b35c-4f0c-9c1f-cf1711e20da2")
+		(uuid "7158f8e9-0373-410c-9e7f-984f9f945e43")
 	)
 	(label "DC+"
 		(at 270.51 43.18 90)
@@ -3634,7 +3634,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "de70debd-f872-496a-bb55-8634f246ba46")
+		(uuid "cc237db5-1f3d-4fc7-a06f-38a4fa578d4e")
 	)
 	(wire
 		(pts
@@ -3645,7 +3645,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "122e9647-13b9-4c8f-93d4-26b878c26243")
+		(uuid "e980541e-89d5-4b72-8cd4-b73a7e8ad1e6")
 	)
 	(label "SNUB"
 		(at 270.51 55.88 270)
@@ -3655,7 +3655,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "ecec4a92-5a6a-454e-8906-c79f32c3b098")
+		(uuid "0ae986fb-854a-4d0a-a460-3e0197a66939")
 	)
 	(symbol
 		(lib_id "Device:C")
@@ -3668,7 +3668,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced no)
-		(uuid "15a9a335-fe4a-4805-b482-7507216c3f19")
+		(uuid "030e8550-a565-47ba-a033-920bdcc27a5c")
 		(property "Reference" "C1"
 			(at 273.05 68.58 0)
 			(show_name no)
@@ -3725,14 +3725,14 @@
 			)
 		)
 		(pin "1"
-			(uuid "5dfe33d4-0e94-4a1c-9b95-28e805d1ffa3")
+			(uuid "869b48c4-7d2b-48b9-8763-62094ae95e94")
 		)
 		(pin "2"
-			(uuid "aee56bef-72b1-477c-8303-bdea50192d36")
+			(uuid "2d557bd9-f977-455b-b11d-11e911a8f050")
 		)
 		(instances
 			(project "rectifier_6p"
-				(path "/40e14593-6e09-4baf-a422-5309368f9379"
+				(path "/d6b4b11a-3ec3-4e08-a552-14d8304a84ed"
 					(reference "C1")
 					(unit 1)
 				)
@@ -3748,7 +3748,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "ae1caf4c-ba08-4d35-863e-46812fab4c5c")
+		(uuid "253b2ca8-2195-42a1-9500-95fa75eb6d3c")
 	)
 	(label "SNUB"
 		(at 270.51 63.5 90)
@@ -3758,7 +3758,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "ac0dbb5c-5afe-42a3-a4c9-b7d1fe97a37a")
+		(uuid "977ed854-9c0f-4d74-9403-373cef1eda57")
 	)
 	(wire
 		(pts
@@ -3769,7 +3769,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "7e4241ae-f3ef-4627-a553-9387106ee410")
+		(uuid "c0d47021-b2b3-4f3c-bc53-a47a8bddc206")
 	)
 	(label "DC-"
 		(at 270.51 76.2 270)
@@ -3779,7 +3779,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "68757ee9-3321-4c2b-a44b-66598b18a326")
+		(uuid "c10a8863-9666-4927-afb2-3b423a3195e0")
 	)
 	(symbol
 		(lib_id "Device:Varistor")
@@ -3792,7 +3792,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced no)
-		(uuid "502725f1-683a-404c-a695-b35b1d717760")
+		(uuid "8e25456e-71f4-4890-9d35-de37ad178d22")
 		(property "Reference" "RV1"
 			(at 292.1 58.42 0)
 			(show_name no)
@@ -3849,14 +3849,14 @@
 			)
 		)
 		(pin "1"
-			(uuid "5ccff5de-0a30-40b5-8ee1-de002bfe2d85")
+			(uuid "23da6eca-57b7-489f-a516-03ea3e058450")
 		)
 		(pin "2"
-			(uuid "cdd6a22a-8e85-48ee-9eb8-7fbcdbc6dd96")
+			(uuid "c53b7c70-a126-447f-b9fe-f897dfcd5632")
 		)
 		(instances
 			(project "rectifier_6p"
-				(path "/40e14593-6e09-4baf-a422-5309368f9379"
+				(path "/d6b4b11a-3ec3-4e08-a552-14d8304a84ed"
 					(reference "RV1")
 					(unit 1)
 				)
@@ -3872,7 +3872,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "e40c5d21-8039-4246-b7e7-8c5638e9f04b")
+		(uuid "6b169853-5bea-4bdb-a820-d3b4b8461543")
 	)
 	(label "DC+"
 		(at 289.56 53.34 90)
@@ -3882,7 +3882,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "f5076ecf-36c3-4c36-ac39-dcceb19ad7e7")
+		(uuid "889ae9d3-212b-4cc2-ba0a-78a6e1e174c0")
 	)
 	(wire
 		(pts
@@ -3893,7 +3893,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "409f8d1e-1d0a-4e1e-ae42-9799cca17585")
+		(uuid "c4d2208a-5abb-41b1-a21c-0a8aea17af68")
 	)
 	(label "DC-"
 		(at 289.56 66.04 270)
@@ -3903,7 +3903,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "4f8b59f2-8620-47d6-8e28-9c4a1961250e")
+		(uuid "81eb4a74-fcc2-4755-8fbe-3199cd922913")
 	)
 	(rectangle
 		(start 296 84)
@@ -3915,7 +3915,7 @@
 		(fill
 			(type none)
 		)
-		(uuid "3cb39a1a-2397-46f8-ba73-6a64ac0c6ef5")
+		(uuid "0162a344-55da-4c9a-8a9b-fa0e3cc5fe16")
 	)
 	(text "Bleeder / DC present"
 		(exclude_from_sim no)
@@ -3927,7 +3927,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "659d65dc-d13d-4487-aee7-b98938eb62e4")
+		(uuid "ddbc11c1-2f73-470b-85c1-89c3b88869b6")
 	)
 	(symbol
 		(lib_id "Device:R")
@@ -3940,7 +3940,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced no)
-		(uuid "79ecec2d-d1a1-4355-b290-fb75311b64d2")
+		(uuid "d6707781-47e9-411a-8a3b-347f7785611b")
 		(property "Reference" "R3"
 			(at 304.8 92.71 0)
 			(show_name no)
@@ -3997,14 +3997,14 @@
 			)
 		)
 		(pin "1"
-			(uuid "8ea35f25-1da1-47de-bbaa-ce75ada2d473")
+			(uuid "96a18d82-91b4-4a6b-b09e-d273431a9bda")
 		)
 		(pin "2"
-			(uuid "fef86004-ac2b-4b90-af44-3d6ba2ba9ee2")
+			(uuid "ee97ebcf-bea9-4e8c-b1b2-6c1d840ce835")
 		)
 		(instances
 			(project "rectifier_6p"
-				(path "/40e14593-6e09-4baf-a422-5309368f9379"
+				(path "/d6b4b11a-3ec3-4e08-a552-14d8304a84ed"
 					(reference "R3")
 					(unit 1)
 				)
@@ -4020,7 +4020,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "3d5cfd9d-c64d-4d6c-aed9-4e553e9b82e4")
+		(uuid "63366aa9-2f5c-4669-855e-09244116088f")
 	)
 	(label "DC+"
 		(at 302.26 87.63 90)
@@ -4030,7 +4030,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "98b35731-e744-4b29-8e67-6c7182ba4503")
+		(uuid "4e758344-eb3c-47d7-98ef-bf39c53bc7ef")
 	)
 	(wire
 		(pts
@@ -4041,7 +4041,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "d72c98c4-bdda-47d2-a7dc-398f6abc17d9")
+		(uuid "1a21e3d3-f7f8-4567-9b55-c0605d582c82")
 	)
 	(label "DC+_BL1"
 		(at 302.26 100.33 270)
@@ -4051,7 +4051,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "5db1b2ea-af71-4533-8aa7-5e272a8bc888")
+		(uuid "0a9626ae-df95-4309-ab87-018a63565104")
 	)
 	(symbol
 		(lib_id "Device:LED")
@@ -4064,7 +4064,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced no)
-		(uuid "5e5af82d-50a6-45c0-a459-53dea357b2fd")
+		(uuid "83d765fc-195e-4f9b-a8bd-8710fa443a5e")
 		(property "Reference" "D7"
 			(at 312.42 90.17 0)
 			(show_name no)
@@ -4119,14 +4119,14 @@
 			)
 		)
 		(pin "1"
-			(uuid "b932c951-4f0d-4f02-861c-75918d0440d9")
+			(uuid "907775f7-3790-459c-9d96-ef794b21a43e")
 		)
 		(pin "2"
-			(uuid "1531a0be-9ffe-4467-96ef-706d8064b1fb")
+			(uuid "d6fd438f-50cb-40e0-9c55-9acb1f0abf87")
 		)
 		(instances
 			(project "rectifier_6p"
-				(path "/40e14593-6e09-4baf-a422-5309368f9379"
+				(path "/d6b4b11a-3ec3-4e08-a552-14d8304a84ed"
 					(reference "D7")
 					(unit 1)
 				)
@@ -4142,7 +4142,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "fe528bf0-51be-4358-a89e-72378ff70e93")
+		(uuid "bf883765-552e-43c2-83a5-5563dc718a6b")
 	)
 	(label "DC+_BL2"
 		(at 306.07 93.98 180)
@@ -4152,7 +4152,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "ab2de785-b105-49df-8bc8-70045155c056")
+		(uuid "713446d5-8dbc-4809-814a-ed10c0b75f2f")
 	)
 	(wire
 		(pts
@@ -4163,7 +4163,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "3e702ae6-44d3-4840-a527-c9ca76ab4dfc")
+		(uuid "2318fccd-3207-4de6-9d11-4bc1b1bf5ee6")
 	)
 	(label "DC+_BL1"
 		(at 318.77 93.98 0)
@@ -4173,7 +4173,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "638763f4-a0fa-4bfc-b0d3-4030f5f57678")
+		(uuid "3de6c1b2-f6a9-407b-9c6f-a73b7fea5679")
 	)
 	(symbol
 		(lib_id "Device:R")
@@ -4186,7 +4186,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced no)
-		(uuid "d389d9bc-5193-4dd8-8ce3-63c32f151278")
+		(uuid "be453ece-79b5-488d-9390-1e5773fe692c")
 		(property "Reference" "R4"
 			(at 322.58 92.71 0)
 			(show_name no)
@@ -4243,14 +4243,14 @@
 			)
 		)
 		(pin "1"
-			(uuid "543fb944-5339-4432-be58-aaaf84e61f86")
+			(uuid "e1dfc204-cd1f-42c3-8199-4d5c9debafcf")
 		)
 		(pin "2"
-			(uuid "afe450be-c3f6-4aca-ba66-e4154e98c3ad")
+			(uuid "1bb2b876-c659-48a3-8b3a-cb21a49caf9e")
 		)
 		(instances
 			(project "rectifier_6p"
-				(path "/40e14593-6e09-4baf-a422-5309368f9379"
+				(path "/d6b4b11a-3ec3-4e08-a552-14d8304a84ed"
 					(reference "R4")
 					(unit 1)
 				)
@@ -4266,7 +4266,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "16bb0b5b-d46a-4330-a5ff-4788e98857a5")
+		(uuid "45e85800-b6df-44c3-a3d4-d13823f53cc5")
 	)
 	(label "DC+_BL2"
 		(at 320.04 87.63 90)
@@ -4276,7 +4276,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "065c3e20-d8b0-4f4a-91fd-6ebf4d954e62")
+		(uuid "4fa9143d-6067-4c3c-8fab-738dc78e822a")
 	)
 	(wire
 		(pts
@@ -4287,7 +4287,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "e54eb0f4-7a1f-4c52-b62a-562ac2788f4a")
+		(uuid "5446c6fc-442c-4ccd-a8cc-6fe94a04f585")
 	)
 	(label "DC-"
 		(at 320.04 100.33 270)
@@ -4297,7 +4297,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "9a757854-1452-4ee9-b178-739af6df2e97")
+		(uuid "e97efec2-9ff1-48f2-9281-980e71fc8bd1")
 	)
 	(symbol
 		(lib_id "Connector:Screw_Terminal_01x02")
@@ -4310,7 +4310,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced no)
-		(uuid "18d9f79c-93c4-4d12-964f-d90a465ec946")
+		(uuid "25ffe0c2-a94d-443d-90f9-4329fabea548")
 		(property "Reference" "J2"
 			(at 361.95 58.42 0)
 			(show_name no)
@@ -4367,14 +4367,14 @@
 			)
 		)
 		(pin "1"
-			(uuid "d1e6fea7-a530-4ca1-969a-3558a98bee37")
+			(uuid "b8406102-12df-4abe-b812-2a718d259de7")
 		)
 		(pin "2"
-			(uuid "981bac6a-8ce1-44ae-b4de-db758e5d3258")
+			(uuid "0408b50c-1d4b-4504-bd50-c007fdd6288d")
 		)
 		(instances
 			(project "rectifier_6p"
-				(path "/40e14593-6e09-4baf-a422-5309368f9379"
+				(path "/d6b4b11a-3ec3-4e08-a552-14d8304a84ed"
 					(reference "J2")
 					(unit 1)
 				)
@@ -4390,7 +4390,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "94c07ae7-5cc9-4bf3-9c38-a79e36725f5a")
+		(uuid "2bba234e-2b14-4e1e-b95c-a5cad418394b")
 	)
 	(label "DC+"
 		(at 351.79 59.69 180)
@@ -4400,7 +4400,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "0c09206a-9082-4500-a6cc-d99786b67dad")
+		(uuid "3288cf36-59b6-46bb-a112-1307a83a0a16")
 	)
 	(wire
 		(pts
@@ -4411,7 +4411,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "dc9c4025-b694-4df1-bc76-3c15dc0d066b")
+		(uuid "aa8dba5b-73cc-47cb-ae29-e4feb937f3ce")
 	)
 	(label "DC-"
 		(at 351.79 62.23 180)
@@ -4421,7 +4421,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "0335cf58-1095-4ef6-9ecb-69d4d5805147")
+		(uuid "7a737373-69e6-492b-86e7-6322f4729ff3")
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
@@ -4434,7 +4434,7 @@
 		(in_pos_files no)
 		(dnp no)
 		(fields_autoplaced no)
-		(uuid "113e5046-618c-46c4-8136-0d51c81d77fa")
+		(uuid "4b4e7979-e7bb-4c7d-b15e-cc662a2c0cdf")
 		(property "Reference" "TP4"
 			(at 342.9 43.18 0)
 			(show_name no)
@@ -4491,11 +4491,11 @@
 			)
 		)
 		(pin "1"
-			(uuid "a2ef8b6f-b198-4713-9a08-3ce9fc4ed3d6")
+			(uuid "7ab1d1a3-98bc-4c7f-a2e9-584c93c74dc4")
 		)
 		(instances
 			(project "rectifier_6p"
-				(path "/40e14593-6e09-4baf-a422-5309368f9379"
+				(path "/d6b4b11a-3ec3-4e08-a552-14d8304a84ed"
 					(reference "TP4")
 					(unit 1)
 				)
@@ -4511,7 +4511,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "7f7eaca3-48c1-42b7-a147-be998338b603")
+		(uuid "99cc5f6b-e5b2-49e4-90d6-5bca7ad9c036")
 	)
 	(label "DC+"
 		(at 340.36 46.99 270)
@@ -4521,7 +4521,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "a1f40b07-2336-4cf0-8efd-8770313cee38")
+		(uuid "ae5b399b-e640-4b9c-a255-73d755f4c887")
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
@@ -4534,7 +4534,7 @@
 		(in_pos_files no)
 		(dnp no)
 		(fields_autoplaced no)
-		(uuid "490ef0f2-635a-49d1-9464-54202c8e0ef5")
+		(uuid "a432a722-10d0-4e8c-8379-da850f204721")
 		(property "Reference" "TP5"
 			(at 342.9 93.98 0)
 			(show_name no)
@@ -4591,11 +4591,11 @@
 			)
 		)
 		(pin "1"
-			(uuid "5f3ee544-5d65-4146-a2b8-e8292f39168d")
+			(uuid "b17539af-3416-414b-80cc-96a887404871")
 		)
 		(instances
 			(project "rectifier_6p"
-				(path "/40e14593-6e09-4baf-a422-5309368f9379"
+				(path "/d6b4b11a-3ec3-4e08-a552-14d8304a84ed"
 					(reference "TP5")
 					(unit 1)
 				)
@@ -4611,7 +4611,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "cf9c3259-93e1-4d69-954d-60ded3a1b4b6")
+		(uuid "a662f759-c954-4252-abfc-214223c9ec93")
 	)
 	(label "DCN"
 		(at 340.36 97.79 270)
@@ -4621,7 +4621,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "a807d7b3-8c3b-49b9-baad-061e7f67449e")
+		(uuid "d11bce21-d9c7-4cb1-ba52-3d064d014881")
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
@@ -4634,7 +4634,7 @@
 		(in_pos_files no)
 		(dnp no)
 		(fields_autoplaced no)
-		(uuid "fb35fc3f-2b84-4f79-ae5c-81fe7066167e")
+		(uuid "b94eb2d9-9950-46f9-8bdb-1840330c4987")
 		(property "Reference" "TP6"
 			(at 342.9 109.22 0)
 			(show_name no)
@@ -4691,11 +4691,11 @@
 			)
 		)
 		(pin "1"
-			(uuid "16d7041f-3ba6-47b2-a400-441c4ed1092a")
+			(uuid "12d68d1a-3ae2-467e-8a5e-e012a6e0319b")
 		)
 		(instances
 			(project "rectifier_6p"
-				(path "/40e14593-6e09-4baf-a422-5309368f9379"
+				(path "/d6b4b11a-3ec3-4e08-a552-14d8304a84ed"
 					(reference "TP6")
 					(unit 1)
 				)
@@ -4711,7 +4711,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "6798d1f9-476b-4898-84f0-3ca85bb2b4b7")
+		(uuid "012d122c-d3a1-47ab-9ae4-8b0709887930")
 	)
 	(label "DC-"
 		(at 340.36 113.03 270)
@@ -4721,7 +4721,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "1d686946-172f-4e55-b9ea-5106fd3fe222")
+		(uuid "55a859ce-ea10-42a1-ae2c-c2866f4dd672")
 	)
 	(symbol
 		(lib_id "Mechanical:MountingHole")
@@ -4734,7 +4734,7 @@
 		(in_pos_files no)
 		(dnp no)
 		(fields_autoplaced no)
-		(uuid "aeb96c67-af17-4002-be29-9d4a73ec779a")
+		(uuid "cc307b01-446f-4465-89b7-024e6f0a9290")
 		(property "Reference" "H1"
 			(at 252.73 133.35 0)
 			(show_name no)
@@ -4792,7 +4792,7 @@
 		)
 		(instances
 			(project "rectifier_6p"
-				(path "/40e14593-6e09-4baf-a422-5309368f9379"
+				(path "/d6b4b11a-3ec3-4e08-a552-14d8304a84ed"
 					(reference "H1")
 					(unit 1)
 				)
@@ -4810,7 +4810,7 @@
 		(in_pos_files no)
 		(dnp no)
 		(fields_autoplaced no)
-		(uuid "70a74d74-cffa-4cb6-b0be-3cffc078fd29")
+		(uuid "db7e8e01-ba14-4c58-b620-fff3c8747d31")
 		(property "Reference" "H2"
 			(at 260.35 133.35 0)
 			(show_name no)
@@ -4868,7 +4868,7 @@
 		)
 		(instances
 			(project "rectifier_6p"
-				(path "/40e14593-6e09-4baf-a422-5309368f9379"
+				(path "/d6b4b11a-3ec3-4e08-a552-14d8304a84ed"
 					(reference "H2")
 					(unit 1)
 				)
@@ -4886,7 +4886,7 @@
 		(in_pos_files no)
 		(dnp no)
 		(fields_autoplaced no)
-		(uuid "a98839d6-3cf1-4c48-a823-6e88a101962d")
+		(uuid "ef70da27-d6fc-4b32-90e0-1fd9508ba16c")
 		(property "Reference" "H3"
 			(at 267.97 133.35 0)
 			(show_name no)
@@ -4944,7 +4944,7 @@
 		)
 		(instances
 			(project "rectifier_6p"
-				(path "/40e14593-6e09-4baf-a422-5309368f9379"
+				(path "/d6b4b11a-3ec3-4e08-a552-14d8304a84ed"
 					(reference "H3")
 					(unit 1)
 				)
@@ -4962,7 +4962,7 @@
 		(in_pos_files no)
 		(dnp no)
 		(fields_autoplaced no)
-		(uuid "0e7cd61d-446f-478e-9765-f9a55d244837")
+		(uuid "e4f32f3e-39f5-44b3-9925-96003eb74bf8")
 		(property "Reference" "H4"
 			(at 276.86 133.35 0)
 			(show_name no)
@@ -5020,7 +5020,7 @@
 		)
 		(instances
 			(project "rectifier_6p"
-				(path "/40e14593-6e09-4baf-a422-5309368f9379"
+				(path "/d6b4b11a-3ec3-4e08-a552-14d8304a84ed"
 					(reference "H4")
 					(unit 1)
 				)
@@ -5036,7 +5036,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "1a71175d-850b-424e-aca2-7f9b8b926b93")
+		(uuid "c0127171-019e-4aac-8411-67d2f57e66a6")
 	)
 	(sheet_instances
 		(path "/"

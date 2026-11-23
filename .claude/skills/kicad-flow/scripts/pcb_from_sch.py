@@ -36,9 +36,9 @@ def prop(node, key, name):
     return None
 
 
-def pj_rules(pro):
+def pj_rules(pro, text=None):
     """Clases con separación > 1 mm del .kicad_pro: para ellas se escribe la regla de 'huellas finas'."""
-    pj = json.load(open(pro, encoding="utf-8"))
+    pj = json.loads(text) if text is not None else json.load(open(pro, encoding="utf-8"))
     return [(c["name"], c["clearance"]) for c in pj.get("net_settings", {}).get("classes", [])
             if c.get("clearance", 0) > 1.0 or c["name"] == "Power"]
 
@@ -82,6 +82,9 @@ def main():
         for row in find(parse(open(flt, encoding="utf-8").read()), "lib"):
             local_libs[val(row, "name")] = val(row, "uri").replace("${KIPRJMOD}", proj_dir)
 
+    # Guardar el .kicad_pro tal como lo escribió el generador del esquemático: al guardar una placa NUEVA,
+    # pcbnew reescribe el proyecto con valores por defecto y borra la matriz ERC y las clases de red.
+    pro_text = open(pro, encoding="utf-8").read()
     if os.path.exists(pcb):
         b = pcbnew.LoadBoard(pcb)
     else:
@@ -159,9 +162,9 @@ def main():
         if path not in kept:
             b.Remove(fp)
     b.Save(pcb)
-    write_dru(base, b, pj_rules(pro))
-    # registrar la placa en el .kicad_pro
-    pj = json.load(open(pro, encoding="utf-8"))
+    write_dru(base, b, pj_rules(pro, pro_text))
+    # restaurar el .kicad_pro original (ERC, clases de red, reglas) y registrar la placa
+    pj = json.loads(pro_text)
     pj["boards"] = pj.get("boards") or []
     json.dump(pj, open(pro, "w", encoding="utf-8", newline="\n"), indent=2, ensure_ascii=False)
     os.remove(net)

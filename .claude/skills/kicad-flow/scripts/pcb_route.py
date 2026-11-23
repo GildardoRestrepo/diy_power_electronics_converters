@@ -4,6 +4,8 @@ Uso (con el Python de KiCad, con la PCB cerrada en KiCad):
     "/c/Program Files/KiCad/10.0/bin/python.exe" -I pcb_route.py <archivo.kicad_pcb> <config.json> [--clean]
 
 --clean borra todas las pistas y vías antes de rutear (si no, las existentes se respetan como ruteo manual).
+El ruteo se hace sobre una copia en una carpeta temporal y la PCB solo se reemplaza al terminar: una
+interrupción nunca deja la placa sin pistas.
 
 Pasos:
   1) Fan-out: cada pad SMD de una red de plano (route.plane_nets) baja con un tramo corto a su
@@ -29,7 +31,7 @@ red de potencia). Usar los mismos valores en `net_settings` del .kicad_pro para 
 
 Verificar siempre después con DRC (`kicad_check.sh`, que rellena zonas).
 """
-import fnmatch, heapq, json, math, sys
+import fnmatch, heapq, json, math, os, sys
 import pcbnew
 from pcbnew import VECTOR2I, FromMM as M, ToMM as T
 
@@ -384,7 +386,7 @@ class Router:
                     keep[n] = sel
             sig = [n for n in sig if n in keep]
             saved = self.pads_by_net
-            self.pads_by_net = dict(saved, **keep)
+            self.pads_by_net = {**saved, **keep}
         rank = {name: k for k, name in enumerate(self.prio_list)}
 
         def hpwl(n):
@@ -482,11 +484,10 @@ def route_pass(pcb, cfg, only, label, pads_mode="all"):
     return fails
 
 
-def main():
-    pcb, cfg_path = sys.argv[1], sys.argv[2]
-    cfg = json.load(open(cfg_path, encoding="utf-8")).get("route", {})
+def route_board(pcb, cfg, clean):
+    """Rutea `pcb` en el sitio (llamar sobre una copia: ver main). Devuelve la lista de fallos."""
     classes = sorted(cfg.get("classes", []), key=lambda c: -c.get("track", 0))
-    if "--clean" in sys.argv:
+    if clean:
         # borrar el ruteo anterior en un proceso aparte: tras b.Remove() SWIG devuelve objetos sin tipo
         # en el siguiente LoadBoard del mismo proceso
         import subprocess
@@ -525,6 +526,26 @@ def main():
     print(f"guardado: {nt} pistas, {nv} vías; fallos: {fails or 'ninguno'}")
     if fails:
         print("Sugerencia: abrir espacio en la colocación alrededor de los pads que fallan y repetir.")
+    return fails
+
+
+def main():
+    """Rutea sobre una copia en una carpeta temporal y reemplaza la PCB solo al terminar: si el proceso se
+    interrumpe (Ctrl+C, cierre de la sesión, error), la placa original queda intacta con su ruteo anterior."""
+    import shutil, tempfile
+    pcb, cfg_path = os.path.abspath(sys.argv[1]), sys.argv[2]
+    cfg = json.load(open(cfg_path, encoding="utf-8")).get("route", {})
+    base = os.path.splitext(pcb)[0]
+    tmp = tempfile.mkdtemp(prefix="pcb_route_")
+    try:
+        work = os.path.join(tmp, os.path.basename(pcb))
+        for ext in (".kicad_pcb", ".kicad_pro", ".kicad_dru"):   # proyecto y reglas: el DRC/relleno los usan
+            if os.path.exists(base + ext):
+                shutil.copyfile(base + ext, os.path.join(tmp, os.path.basename(base) + ext))
+        fails = route_board(work, cfg, "--clean" in sys.argv)
+        shutil.copyfile(work, pcb)
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
     sys.exit(1 if fails else 0)
 
 

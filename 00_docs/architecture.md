@@ -78,7 +78,7 @@ type: reference
 ---
 ## 6. Board size, layers and assembly
 
-**Decision.** All boards are $100 \times 100\,\mathrm{mm}$ or smaller, two-layer, $2\,\mathrm{oz}$ copper recommended, through-hole components only, four M3 mounting holes on a $92 \times 92\,\mathrm{mm}$ pattern (the enclosure limit is $120 \times 120 \times 60\,\mathrm{mm}$). Power traces are $\geq 2.5\,\mathrm{mm}$ wide with $\geq 2.0\,\mathrm{mm}$ clearance between power nets and $\geq 6\,\mathrm{mm}$ between any power net and the gate-bus side.
+**Decision.** All boards are $100 \times 100\,\mathrm{mm}$ or smaller, two-layer (four layers for the inverter, see section 9), $2\,\mathrm{oz}$ copper recommended, through-hole components only, four M3 mounting holes on a $92 \times 92\,\mathrm{mm}$ pattern (the enclosure limit is $120 \times 120 \times 60\,\mathrm{mm}$). Power traces are $\geq 2.5\,\mathrm{mm}$ wide with $\geq 2.0\,\mathrm{mm}$ clearance between power nets and $\geq 6\,\mathrm{mm}$ between any power net and the gate-bus side.
 
 **Consequences.**
 - ✅ Hand-solderable by students, cheap at any PCB service.
@@ -94,6 +94,58 @@ type: reference
 **Consequences.**
 - ✅ A change in the driver cell propagates to all boards by re-running the scripts.
 - ⚠️ Manual edits in KiCad are overwritten by the next generation; edit the scripts instead, or stop generating that project.
+
+---
+## 8. Inverter DC link raised to 340 V by the boost box
+
+**Context.** With the six-pulse rectifier ($\approx 280\,\mathrm{V}$) the inverter reaches at most $171\,\mathrm{V_{LL}}$ in the linear PWM range ($m_a = 1$), below the lab's $208\,\mathrm{V_{LL}}$.
+
+**Options considered.**
+- *Keep 280 V and accept $\approx 137\,\mathrm{V_{LL}}$ at $m_a = 0.8$.* No hardware change, but the inverter cannot reproduce the mains voltage.
+- *Six-step operation.* Reaches $218\,\mathrm{V_{LL}}$ but only with the $31\,\%$ THD square wave.
+- *Feed the inverter from the boost box at 340 V.* Linear range up to $208\,\mathrm{V_{LL}}$, and the two boxes are used together in a lab session.
+
+**Decision.** The inverter's nominal DC link becomes $340\,\mathrm{V}$, supplied by the boost box from the lab's $110\,\mathrm{V}$ source. The rectifier remains a valid source for lower output voltages.
+
+**Consequences.**
+- ✅ $208\,\mathrm{V_{LL}}$ needs $m_a = 208 / (0.612 \cdot 340) = 1.00$ ideally; lamps of $110\,\mathrm{V}$ in Y ($190\,\mathrm{V_{LL}}$) need $m_a = 0.91$.
+- ⚠️ With dead time and device drops, $208\,\mathrm{V_{LL}}$ needs $m_a \approx 1.05$: slight overmodulation, which the gating block supports up to $1.15$.
+- ⚠️ Boost: $D = 1 - 110/340 = 0.676$. Its over-voltage trip, set today at $348\,\mathrm{V}$ ($6.8\,\mathrm{k\Omega}$), must rise to about $381\,\mathrm{V}$ ($6.2\,\mathrm{k\Omega}$, the same as the inverter); the $450\,\mathrm{V}$ capacitors keep $18\,\%$ margin.
+- ⚠️ Open: the boost is rated $200\,\mathrm{W}$ and the inverter $300\,\mathrm{W}$. Either the boost is re-rated to $300\,\mathrm{W}$ ($I_L \approx 2.9\,\mathrm{A}$ average, within the 600 V / 20 A devices but at the limit of a $3\,\mathrm{A}$ inductor and of the lab supply current), or the inverter is limited to $200\,\mathrm{W}$ when fed from the boost. To be decided in the boost stage.
+
+---
+## 9. Inverter board on four layers
+
+**Context.** On two layers and $115 \times 115\,\mathrm{mm}$ the inverter (six TO-247, six drivers, four isolated supplies, protection) left 65 pads unrouted and exceeded the $100\,\mathrm{mm}$ board limit of section 6.
+
+**Decision.** The inverter moves to a four-layer, $1.6\,\mathrm{mm}$ board within $100 \times 100\,\mathrm{mm}$. Inner layers carry split planes per isolation domain (gate-bus GND, each floating driver supply, power common), keeping the $6\,\mathrm{mm}$ gap between domains on every layer. The other boards stay on two layers.
+
+**Consequences.**
+- ✅ Shorter gate loops and a return plane under each driver.
+- ⚠️ The script router only handles F.Cu/B.Cu today; the skill needs inner-layer planes per domain and routing on four layers before the inverter can be regenerated.
+- ⚠️ Higher fabrication cost for one board.
+
+---
+## 10. Purchased inductor for the DC/DC boxes
+
+**Context.** Buck and boost share an external inductor of $4.7\,\mathrm{mH}$ that must carry $1.8\,\mathrm{A}$ average and about $2.2\,\mathrm{A}$ peak without saturating ($3\,\mathrm{A}$ or more if the boost is re-rated to $300\,\mathrm{W}$). Surface-mount power inductors with several amperes of saturation current are in the microhenry range; the millihenry surface-mount and radial parts saturate near $0.15\,\mathrm{A}$.
+
+**Decision.** Buy a chassis-mount power choke of $4.7$–$10\,\mathrm{mH}$ with a DC rating of at least $4\,\mathrm{A}$, connected to the `L` terminal block. Candidates found: Hammond 157E ($6\,\mathrm{mH}$, $4\,\mathrm{A}$) and Hammond 159ZJ ($10\,\mathrm{mH}$, $5\,\mathrm{A}$, $0.16\,\Omega$). Winding a powder-core toroid remains the fallback.
+
+**Consequences.**
+- ✅ A higher inductance lowers the ripple and the CCM limit; $0.16\,\Omega$ is below the $0.4\,\Omega$ assumed in the loss reports.
+- ⚠️ The ripple, CCM limit and loss tables must be recalculated with the chosen part. Its size and mounting go into the enclosure design, outside the $12 \times 12 \times 6\,\mathrm{cm}$ box.
+
+---
+## 11. Lab characterisation of transformers and reactor
+
+**Context.** The loss models assume a transformer leakage of $L_s = 1\,\mathrm{mH}$ per phase and a $20\,\mathrm{mH}$ reactor. New phase-shifting transformers are arriving for the 12- and 24-pulse tests.
+
+**Decision.** Measure each new transformer (open-circuit and short-circuit tests: magnetising branch, leakage inductance, winding resistance, phase shift between secondaries) and the reactor (inductance at $60\,\mathrm{Hz}$ and its DC resistance) as a lab experiment of the rectifier stage. The measured values replace the assumptions in the rectifier and inverter loss reports.
+
+**Consequences.**
+- ✅ The commutation overlap, regulation and ripple predictions become checkable against measurement.
+- ⚠️ The rectifier stage needs a test procedure before the transformers are used.
 
 ---
 ## Links
